@@ -1,14 +1,21 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from '@mui/material/Slider';
 import HeartDataTable from './HeartDataTable';
+import calculateHeartRateZones from './calculateHeartRateZones';
 
 function App() {
-  const [value, setValue] = React.useState(170);
+  const [value, setValue] = useState(170);
+  const [ranges, setRanges] = useState();
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  useEffect(() => {
+    const range = calculateHeartRateZones({ value });
+    setRanges(range);
+  }, [value]);
 
   return (
     <div className='Main'>
@@ -29,7 +36,7 @@ function App() {
           />
           <h1>{value}</h1>
         </div>
-        <HeartDataTable />
+        <HeartDataTable ranges={ranges} />
       </div>
     </div>
   );

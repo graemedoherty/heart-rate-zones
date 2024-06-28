@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,7 +7,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const HeartDataTable = () => {
+const HeartDataTable = (props) => {
+  if (!props.ranges) {
+    return <div>Loading...</div>; // Or handle loading state appropriately
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
@@ -31,7 +35,9 @@ const HeartDataTable = () => {
             </TableCell>
             <TableCell align='right'>{'Easy'}</TableCell>
             <TableCell align='right'>
-              <h2>{'133 - 144'}</h2>
+              <h2>{`${props.ranges.zone1 ? props.ranges.zone1[0] : ''} - ${
+                props.ranges.zone1 ? props.ranges.zone1[1] : ''
+              }`}</h2>
             </TableCell>
             <TableCell align='right'>{'50% - 60%'}</TableCell>
             <TableCell align='right'>{'Warmup Zone'}</TableCell>
@@ -46,7 +52,9 @@ const HeartDataTable = () => {
             </TableCell>
             <TableCell align='right'>{'Steady'}</TableCell>
             <TableCell align='right'>
-              <h2>{'145 - 158'}</h2>
+              <h2>{`${props.ranges.zone2 ? props.ranges.zone2[0] : ''} - ${
+                props.ranges.zone2 ? props.ranges.zone2[1] : ''
+              }`}</h2>
             </TableCell>
             <TableCell align='right'>{'60% - 70%'}</TableCell>
             <TableCell align='right'>{'Fat Burn Zone'}</TableCell>
@@ -61,7 +69,9 @@ const HeartDataTable = () => {
             </TableCell>
             <TableCell align='right'>{'Moderately Hard'}</TableCell>
             <TableCell align='right'>
-              <h2>{'159 - 171'}</h2>
+              <h2>{`${props.ranges.zone3 ? props.ranges.zone3[0] : ''} - ${
+                props.ranges.zone3 ? props.ranges.zone3[1] : ''
+              }`}</h2>
             </TableCell>
             <TableCell align='right'>{'70% - 80%'}</TableCell>
             <TableCell align='right'>{'Aerobic Zone'}</TableCell>
@@ -76,7 +86,9 @@ const HeartDataTable = () => {
             </TableCell>
             <TableCell align='right'>{'Hard'}</TableCell>
             <TableCell align='right'>
-              <h2>{'172 - 183'}</h2>
+              <h2>{`${props.ranges.zone4 ? props.ranges.zone4[0] : ''} - ${
+                props.ranges.zone4 ? props.ranges.zone4[1] : ''
+              }`}</h2>
             </TableCell>
             <TableCell align='right'>{'80% - 90%'}</TableCell>
             <TableCell align='right'>{'Anaerobic Zone'}</TableCell>
@@ -91,7 +103,9 @@ const HeartDataTable = () => {
             </TableCell>
             <TableCell align='right'>{'Very Hard'}</TableCell>
             <TableCell align='right'>
-              <h2>{'184 - 196'}</h2>
+              <h2>{`${props.ranges.zone5 ? props.ranges.zone5[0] : ''} - ${
+                props.ranges.zone5 ? props.ranges.zone5[1] : ''
+              }`}</h2>
             </TableCell>
             <TableCell align='right'>{'90% - 100%'}</TableCell>
             <TableCell align='right'>{'VO2 Max Zone'}</TableCell>
