@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/github.io/heart-rate-zones/static/css/main.b9718f7b.css",
-    "main.js": "/github.io/heart-rate-zones/static/js/main.c17c52d6.js",
+    "main.css": "/github.io/heart-rate-zones/static/css/main.39f8e59a.css",
+    "main.js": "/github.io/heart-rate-zones/static/js/main.52061096.js",
     "index.html": "/github.io/heart-rate-zones/index.html",
-    "main.b9718f7b.css.map": "/github.io/heart-rate-zones/static/css/main.b9718f7b.css.map",
-    "main.c17c52d6.js.map": "/github.io/heart-rate-zones/static/js/main.c17c52d6.js.map"
+    "main.39f8e59a.css.map": "/github.io/heart-rate-zones/static/css/main.39f8e59a.css.map",
+    "main.52061096.js.map": "/github.io/heart-rate-zones/static/js/main.52061096.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9718f7b.css",
-    "static/js/main.c17c52d6.js"
+    "static/css/main.39f8e59a.css",
+    "static/js/main.52061096.js"
   ]
 }
