@@ -17,11 +17,21 @@ const HeartDataTable = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
         <TableHead>
           <TableRow>
-            <TableCell>Zones</TableCell>
-            <TableCell align='right'>Feel</TableCell>
-            <TableCell align='right'>Heart Rate (BPM)</TableCell>
-            <TableCell align='right'>Intensity</TableCell>
-            <TableCell align='right'>Target Zones</TableCell>
+            <TableCell>
+              <b>Zones</b>
+            </TableCell>
+            <TableCell align='right'>
+              <b>Feel</b>
+            </TableCell>
+            <TableCell align='right'>
+              <b>Heart Rate (BPM)</b>
+            </TableCell>
+            <TableCell align='right'>
+              <b>Intensity</b>
+            </TableCell>
+            <TableCell align='right'>
+              <b>Target Zones</b>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -31,7 +41,7 @@ const HeartDataTable = (props) => {
             id='zone1'
           >
             <TableCell component='th' scope='row'>
-              {'Zone 1'}
+              <h3>{'Zone 1'}</h3>
             </TableCell>
             <TableCell align='right'>{'Easy'}</TableCell>
             <TableCell align='right'>
@@ -48,7 +58,7 @@ const HeartDataTable = (props) => {
             id='zone2'
           >
             <TableCell component='th' scope='row'>
-              {'Zone 2'}
+              <h3>{'Zone 2'}</h3>
             </TableCell>
             <TableCell align='right'>{'Steady'}</TableCell>
             <TableCell align='right'>
@@ -65,7 +75,7 @@ const HeartDataTable = (props) => {
             id='zone3'
           >
             <TableCell component='th' scope='row'>
-              {'Zone 3'}
+              <h3>{'Zone 3'}</h3>
             </TableCell>
             <TableCell align='right'>{'Moderately Hard'}</TableCell>
             <TableCell align='right'>
@@ -82,7 +92,7 @@ const HeartDataTable = (props) => {
             id='zone4'
           >
             <TableCell component='th' scope='row'>
-              {'Zone 4'}
+              <h3>{'Zone 4'}</h3>
             </TableCell>
             <TableCell align='right'>{'Hard'}</TableCell>
             <TableCell align='right'>
@@ -99,7 +109,7 @@ const HeartDataTable = (props) => {
             id='zone5'
           >
             <TableCell component='th' scope='row'>
-              {'Zone 5'}
+              <h3>{'Zone 5'}</h3>
             </TableCell>
             <TableCell align='right'>{'Very Hard'}</TableCell>
             <TableCell align='right'>

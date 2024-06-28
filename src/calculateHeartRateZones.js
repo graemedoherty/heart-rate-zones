@@ -1,5 +1,4 @@
 function calculateHeartRateZones(maxHeartRate) {
-  console.log('calculate function ', maxHeartRate.value);
   // Set default value if maxHeartRate is not provided or is invalid
   let maxHR = parseInt(maxHeartRate.value, 10);
   if (isNaN(maxHR) || maxHR <= 0) {
