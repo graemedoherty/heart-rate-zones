@@ -40,6 +40,7 @@
 
 #zone1 {
   background-color: #a8e6cf;
+  box-shadow: 120px 80px 40px 20px #a8e6cf;
 }
 #zone2 {
   background-color: #56b881;

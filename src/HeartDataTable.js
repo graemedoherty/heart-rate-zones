@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -24,7 +24,7 @@ const HeartDataTable = (props) => {
               <b>Feel</b>
             </TableCell>
             <TableCell align='right'>
-              <b>Heart Rate (BPM)</b>
+              <b>Range (BPM)</b>
             </TableCell>
             <TableCell align='right'>
               <b>Intensity</b>

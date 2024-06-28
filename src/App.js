@@ -34,7 +34,7 @@ function App() {
             min={120}
             max={210}
           />
-          <h1>{value}</h1>
+          <h1>{value} BPM</h1>
         </div>
         <HeartDataTable ranges={ranges} />
       </div>
