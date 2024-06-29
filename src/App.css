@@ -13,6 +13,7 @@
   /* border: 1px solid gray; */
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .Slider-Row {
@@ -25,7 +26,8 @@
   justify-content: space-between;
 }
 #HeartRateSlider {
-  flex-basis: 80%;
+  flex-basis: 60%;
+  width: 30%;
 }
 #HeartRateValue {
   flex-basis: 100px;
@@ -75,4 +77,20 @@
 }
 
 @media screen and (max-width: 660px) {
+}
+
+.row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.component {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+.component-large {
+  flex: 3;
 }

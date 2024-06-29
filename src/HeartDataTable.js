@@ -7,6 +7,44 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+const zonesData = [
+  {
+    id: 'zone1',
+    zone: 'Zone 1',
+    feel: 'Easy',
+    intensity: '50% - 60%',
+    target: 'Warmup Zone',
+  },
+  {
+    id: 'zone2',
+    zone: 'Zone 2',
+    feel: 'Steady',
+    intensity: '60% - 70%',
+    target: 'Fat Burn Zone',
+  },
+  {
+    id: 'zone3',
+    zone: 'Zone 3',
+    feel: 'Moderately Hard',
+    intensity: '70% - 80%',
+    target: 'Aerobic Zone',
+  },
+  {
+    id: 'zone4',
+    zone: 'Zone 4',
+    feel: 'Hard',
+    intensity: '80% - 90%',
+    target: 'Anaerobic Zone',
+  },
+  {
+    id: 'zone5',
+    zone: 'Zone 5',
+    feel: 'Very Hard',
+    intensity: '90% - 100%',
+    target: 'VO2 Max Zone',
+  },
+];
+
 const HeartDataTable = (props) => {
   if (!props.ranges) {
     return <div>Loading...</div>; // Or handle loading state appropriately
@@ -35,111 +73,31 @@ const HeartDataTable = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow
-            key={'zone1'}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            id='zone1'
-          >
-            <TableCell component='th' scope='row'>
-              <h3>{'Zone 1'}</h3>
-            </TableCell>
-            <TableCell align='right' className='hide-on-mobile'>
-              {'Easy'}
-            </TableCell>
-            <TableCell align='right'>
-              <h2>{`${props.ranges.zone1 ? props.ranges.zone1[0] : ''} - ${
-                props.ranges.zone1 ? props.ranges.zone1[1] : ''
-              }`}</h2>
-            </TableCell>
-            <TableCell align='right' className='hide-on-mobile'>
-              {'50% - 60%'}
-            </TableCell>
-            <TableCell align='right'>{'Warmup Zone'}</TableCell>
-          </TableRow>
-          <TableRow
-            key={'zone2'}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            id='zone2'
-          >
-            <TableCell component='th' scope='row'>
-              <h3>{'Zone 2'}</h3>
-            </TableCell>
-            <TableCell align='right' className='hide-on-mobile'>
-              {'Steady'}
-            </TableCell>
-            <TableCell align='right'>
-              <h2>{`${props.ranges.zone2 ? props.ranges.zone2[0] : ''} - ${
-                props.ranges.zone2 ? props.ranges.zone2[1] : ''
-              }`}</h2>
-            </TableCell>
-            <TableCell align='right' className='hide-on-mobile'>
-              {'60% - 70%'}
-            </TableCell>
-            <TableCell align='right'>{'Fat Burn Zone'}</TableCell>
-          </TableRow>
-          <TableRow
-            key={'zone3'}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            id='zone3'
-          >
-            <TableCell component='th' scope='row'>
-              <h3>{'Zone 3'}</h3>
-            </TableCell>
-            <TableCell align='right' className='hide-on-mobile'>
-              {'Moderately Hard'}
-            </TableCell>
-            <TableCell align='right'>
-              <h2>{`${props.ranges.zone3 ? props.ranges.zone3[0] : ''} - ${
-                props.ranges.zone3 ? props.ranges.zone3[1] : ''
-              }`}</h2>
-            </TableCell>
-            <TableCell align='right' className='hide-on-mobile'>
-              {'70% - 80%'}
-            </TableCell>
-            <TableCell align='right'>{'Aerobic Zone'}</TableCell>
-          </TableRow>
-          <TableRow
-            key={'zone4'}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            id='zone4'
-          >
-            <TableCell component='th' scope='row'>
-              <h3>{'Zone 4'}</h3>
-            </TableCell>
-            <TableCell align='right' className='hide-on-mobile'>
-              {'Hard'}
-            </TableCell>
-            <TableCell align='right'>
-              <h2>{`${props.ranges.zone4 ? props.ranges.zone4[0] : ''} - ${
-                props.ranges.zone4 ? props.ranges.zone4[1] : ''
-              }`}</h2>
-            </TableCell>
-            <TableCell align='right' className='hide-on-mobile'>
-              {'80% - 90%'}
-            </TableCell>
-            <TableCell align='right'>{'Anaerobic Zone'}</TableCell>
-          </TableRow>
-          <TableRow
-            key={'zone5'}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            id='zone5'
-          >
-            <TableCell component='th' scope='row'>
-              <h3>{'Zone 5'}</h3>
-            </TableCell>
-            <TableCell align='right' className='hide-on-mobile'>
-              {'Very Hard'}
-            </TableCell>
-            <TableCell align='right'>
-              <h2>{`${props.ranges.zone5 ? props.ranges.zone5[0] : ''} - ${
-                props.ranges.zone5 ? props.ranges.zone5[1] : ''
-              }`}</h2>
-            </TableCell>
-            <TableCell align='right' className='hide-on-mobile'>
-              {'90% - 100%'}
-            </TableCell>
-            <TableCell align='right'>{'VO2 Max Zone'}</TableCell>
-          </TableRow>
+          {zonesData.map((zone) => (
+            <TableRow
+              key={zone.id}
+              id={zone.id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component='th' scope='row'>
+                <h3>{zone.zone}</h3>
+              </TableCell>
+              <TableCell align='right' className='hide-on-mobile'>
+                {zone.feel}
+              </TableCell>
+              <TableCell align='right'>
+                <h2>{`${
+                  props.ranges[zone.id] ? props.ranges[zone.id][0] : ''
+                } - ${
+                  props.ranges[zone.id] ? props.ranges[zone.id][1] : ''
+                }`}</h2>
+              </TableCell>
+              <TableCell align='right' className='hide-on-mobile'>
+                {zone.intensity}
+              </TableCell>
+              <TableCell align='right'>{zone.target}</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
