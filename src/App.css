@@ -33,6 +33,11 @@
   border: 1px solid blue;
 }
 
+#Table-Header {
+  background-color: darkcyan;
+  color: white !important;
+}
+
 #bpm {
   color: white;
 }
@@ -96,7 +101,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2); /* Increase the scale for a larger icon */
+    transform: scale(2); /* Increase the scale for a larger icon */
   }
   100% {
     transform: scale(1);
@@ -105,6 +110,6 @@
 
 .heart-pulse {
   color: red; /* Set the color of the heart icon */
-  font-size: 3rem; /* Adjust the font size for a larger heart icon */
-  animation: pulse 1s infinite; /* Apply the pulse animation */
+  font-size: 10rem; /* Adjust the font size for a larger heart icon */
+  animation: pulse 2s infinite; /* Apply the pulse animation */
 }

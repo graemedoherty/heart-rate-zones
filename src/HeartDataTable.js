@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Typography } from '@mui/material';
 
 const zonesData = [
   {
@@ -54,21 +55,31 @@ const HeartDataTable = (props) => {
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
         <TableHead>
-          <TableRow>
+          <TableRow id='Table-Header'>
             <TableCell>
-              <b>Zones</b>
+              <Typography sx={{ color: 'white' }}>
+                <b>Zones</b>
+              </Typography>
             </TableCell>
             <TableCell align='right' className='hide-on-mobile'>
-              <b>Feel</b>
+              <Typography sx={{ color: 'white' }}>
+                <b>Feel</b>
+              </Typography>
             </TableCell>
             <TableCell align='right'>
-              <b>Range (BPM)</b>
+              <Typography sx={{ color: 'white' }}>
+                <b>Range (BPM)</b>
+              </Typography>
             </TableCell>
             <TableCell align='right' className='hide-on-mobile'>
-              <b>Intensity</b>
+              <Typography sx={{ color: 'white' }}>
+                <b>Intensity</b>
+              </Typography>
             </TableCell>
             <TableCell align='right'>
-              <b>Target Zones</b>
+              <Typography sx={{ color: 'white' }}>
+                <b>Target Zones</b>
+              </Typography>
             </TableCell>
           </TableRow>
         </TableHead>
