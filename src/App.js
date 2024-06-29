@@ -1,9 +1,10 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import MuiInput from '@mui/material/Input';
 import HeartDataTable from './HeartDataTable';
-import calculateHeartRateZones from './calculateHeartRateZones';
 import PrettoSlider from './SliderStyle';
+import CalculateHeartRateZones from './CalculateHeartRateZones';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 
 function App() {
   const [value, setValue] = useState(170);
@@ -19,20 +20,15 @@ function App() {
   };
 
   useEffect(() => {
-    const range = calculateHeartRateZones({ value });
+    const range = CalculateHeartRateZones({ value });
     setRanges(range);
   }, [value]);
 
   return (
     <div className='Main'>
       <div className='Center'>
-        <div id='Slider-Header'>
-          <h5 className='HeaderLong'>Please enter your max heart rate: </h5>
-          <h5 className='HeaderShort'> Max Heart Rate:</h5>
-          <h5 className='HeaderShort'>Age:</h5>
-        </div>
-
         <div className='Slider-Row'>
+          <DirectionsRunIcon />
           <PrettoSlider
             id='HeartRateSlider'
             aria-label='pretto slider'
@@ -43,20 +39,11 @@ function App() {
             valueLabelDisplay='auto'
             aria-labelledby='slider-label'
           />
-          <h1>{value}</h1>
 
-          <MuiInput
-            fontWeight={400}
-            value={age}
-            onChange={handleInputChange}
-            inputProps={{
-              min: 1,
-              max: 100,
-              type: 'number',
-              'aria-labelledby': 'input-slider',
-            }}
-          />
+          <h1 id='bpm'>{`${value} bpm`}</h1>
+          <FavoriteIcon className='heart-pulse' />
         </div>
+
         <HeartDataTable ranges={ranges} />
       </div>
     </div>

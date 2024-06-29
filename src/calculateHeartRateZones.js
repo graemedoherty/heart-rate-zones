@@ -1,4 +1,4 @@
-function calculateHeartRateZones(maxHeartRate) {
+function CalculateHeartRateZones(maxHeartRate) {
   // Set default value if maxHeartRate is not provided or is invalid
   let maxHR = parseInt(maxHeartRate.value, 10);
   if (isNaN(maxHR) || maxHR <= 0) {
@@ -16,4 +16,4 @@ function calculateHeartRateZones(maxHeartRate) {
   return zones;
 }
 
-export default calculateHeartRateZones;
+export default CalculateHeartRateZones;
