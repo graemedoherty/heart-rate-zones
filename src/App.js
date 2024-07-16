@@ -1,18 +1,12 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import HeartDataTable from './HeartDataTable';
-import PrettoSlider from './SliderStyle';
 import CalculateHeartRateZones from './CalculateHeartRateZones';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
-import ButtonAppBar from './Header';
-import { Button } from '@mui/material';
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
+import Card from './Components/Card/Card';
+import HeartRateZone from './Components/Heart/HeartRateZone';
+import PowerZonesCalculator from './Components/Power/PowerZoneCalculator';
 
 function App() {
   const [value, setValue] = useState(170);
-  const [age, setAge] = useState(28);
   const [ranges, setRanges] = useState();
 
   const handleSliderChange = (event, newValue) => {
@@ -38,33 +32,29 @@ function App() {
 
   return (
     <>
-      <ButtonAppBar />
       <div className='Main'>
-        <div className='Center'>
-          <div className='Slider-Row'>
-            <DirectionsRunIcon />
-            <Button onClick={subtract}>
-              <RemoveIcon sx={{ color: 'white' }} />
-            </Button>
-            <PrettoSlider
-              id='HeartRateSlider'
-              aria-label='pretto slider'
-              value={typeof value === 'number' ? value : 0}
-              min={120}
-              max={210}
-              onChange={handleSliderChange}
-              valueLabelDisplay='auto'
-              aria-labelledby='slider-label'
-            />
-            <Button onClick={add}>
-              <AddIcon sx={{ color: 'white' }} />
-            </Button>
-            <h1 id='bpm'>{`${value} bpm`}</h1>
-            <FavoriteIcon className='heart-pulse' />
-          </div>
-
-          <HeartDataTable ranges={ranges} />
-        </div>
+        <Card>
+          <h5>Power Zone Calculator</h5>
+          <h5>
+            Power zone training in running is a structured approach to training
+            that categorizes different intensities of effort into specific zones
+            based on physiological thresholds such as heart rate, pace, or
+            perceived exertion. The concept is similar to other training
+            methodologies like heart rate zone training or pace-based training,
+            but it specifically focuses on power output.
+          </h5>
+          <PowerZonesCalculator />
+        </Card>
+        <Card>
+          <HeartRateZone
+            value={value}
+            ranges={ranges}
+            subtract={subtract}
+            add={add}
+            handleSliderChange={handleSliderChange}
+          />
+        </Card>
+        <Card></Card>
       </div>
     </>
   );
