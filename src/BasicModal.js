@@ -17,7 +17,6 @@ const style = {
 };
 
 const BasicModal = (zone) => {
-  console.log('Zone ', zone);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
