@@ -1,0 +1,22 @@
+/* HeartRateZone.css */
+
+.HeartRateZone {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%; /* Ensure it takes the full height of its parent */
+}
+
+.Slider-Row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.Heart-Data-Table {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end; /* Position the table at the bottom */
+  width: 100%;
+}

@@ -1,141 +1,47 @@
 /* App.css */
 
+body,
 html,
-body {
+#root {
+  margin: 0;
+  padding: 0;
   height: 100%;
   width: 100%;
-  margin: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
+  flex-direction: column;
 }
 
 .Main {
-  height: 100vh;
-  width: 100vw;
   display: flex;
-  background-color: white;
-  overflow: hidden; /* Prevent overflow */
-}
-
-.Left,
-.Center,
-.Right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px; /* Adjusted padding */
-  box-sizing: border-box;
-}
-
-/* Style the HeartRateZone component */
-.HeartRateZone {
-  flex: 1; /* Ensure it takes up all available space */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5px; /* Adjust as needed */
-  box-sizing: border-box;
-}
-
-.Slider-Row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  height: 100%;
   width: 100%;
-  flex-shrink: 0;
-  justify-content: space-between;
 }
 
-#HeartRateSlider {
-  flex-grow: 1;
-  margin: 0 10px; /* Add some margin */
-}
-
-#HeartRateValue {
-  flex-basis: 100px;
-  border: 1px solid blue;
-}
-
-#Table-Header {
-  background-color: rgb(0, 0, 0);
-  color: white !important;
-}
-
-#bpm {
-  color: black; /* Change to black for better readability on light background */
-}
-
-#zone1 {
-  background-color: #a8e6cf;
-  box-shadow: 120px 80px 40px 20px #a8e6cf;
-}
-#zone2 {
-  background-color: #56b881;
-}
-#zone3 {
-  background-color: #ffd700;
-}
-#zone4 {
-  background-color: #ff8c00;
-}
-#zone5 {
-  background-color: #ff4500;
-}
-
-@media screen and (max-width: 1000px) {
-  #Slider-Header {
-    display: none;
-  }
-  .Center {
-    width: 95%;
-  }
-  .hide-on-mobile {
-    display: none !important;
-  }
-
-  .Slider-Row {
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 660px) {
-}
-
-.row {
+.Sidebar {
+  width: 20%;
+  background-color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
   display: flex;
-  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.component {
-  flex: 1;
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
+.Content {
+  width: 80%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
-.component-large {
-  flex: 3;
+.button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(2); /* Increase the scale for a larger icon */
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.heart-pulse {
-  color: red; /* Set the color of the heart icon */
-  font-size: 10rem; /* Adjust the font size for a larger heart icon */
-  animation: pulse 2s infinite; /* Apply the pulse animation */
+.MuiButton-root.active {
+  background-color: #000; /* Active button color */
 }
