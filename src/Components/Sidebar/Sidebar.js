@@ -1,60 +1,51 @@
 import React from 'react';
-import { Button, ButtonGroup } from '@mui/material';
-import Card from '../Card/Card';
+import { Button } from '@mui/material';
 
 const Sidebar = ({ scrollToCard, activeSection }) => {
-  console.log('Active Section in Sidebar: ', activeSection); // Log active section in Sidebar
-
   return (
     <div className='Sidebar'>
-      {/* Buttons to scroll to each section */}
-      <ButtonGroup
-        orientation='vertical'
-        aria-label='vertical button group'
-        className='button-group'
-        color='primary'
+      <Button
         sx={{
           width: '100%',
-          borderRadius: 0, // Remove border radius from ButtonGroup
-          '& .MuiButton-root': {
-            width: '100%',
-            margin: '10px 0',
-            backgroundColor: '#333', // Dark grey for inactive buttons
-            color: '#000', // Black text for inactive buttons
-            border: '1px solid #000', // Black border for inactive buttons
-            '&:hover': {
-              backgroundColor: '#555',
-            },
+          color: activeSection === 'Power' ? 'white' : 'black',
+          backgroundColor: activeSection === 'Power' ? 'black' : 'white',
+          '&:hover': {
+            backgroundColor: activeSection === 'Power' ? 'black' : '#ddd',
           },
-          '& .active': {
-            backgroundColor: '#000', // Black background for active button
-            color: '#fff', // White text for active button
-            border: '1px solid #000', // Black border for active button
-            '&:hover': {
-              backgroundColor: '#333',
-            },
-          },
+          marginBottom: 1, // Add margin between buttons
         }}
+        onClick={() => scrollToCard('Power')}
       >
-        <Button
-          className={activeSection === 'Power' ? 'active' : ''}
-          onClick={() => scrollToCard('Power')}
-        >
-          Power
-        </Button>
-        <Button
-          className={activeSection === 'Heart' ? 'active' : ''}
-          onClick={() => scrollToCard('Heart')}
-        >
-          Heart
-        </Button>
-        <Button
-          className={activeSection === 'Pace' ? 'active' : ''}
-          onClick={() => scrollToCard('Pace')}
-        >
-          Pace
-        </Button>
-      </ButtonGroup>
+        Power
+      </Button>
+      <Button
+        sx={{
+          width: '100%',
+          color: activeSection === 'Heart' ? 'white' : 'black',
+          backgroundColor: activeSection === 'Heart' ? 'black' : 'white',
+          '&:hover': {
+            backgroundColor: activeSection === 'Heart' ? 'black' : '#ddd',
+          },
+          marginBottom: 1, // Add margin between buttons
+        }}
+        onClick={() => scrollToCard('Heart')}
+      >
+        Heart
+      </Button>
+      <Button
+        sx={{
+          width: '100%',
+          color: activeSection === 'Pace' ? 'white' : 'black',
+          backgroundColor: activeSection === 'Pace' ? 'black' : 'white',
+          '&:hover': {
+            backgroundColor: activeSection === 'Pace' ? 'black' : '#ddd',
+          },
+          marginBottom: 1, // Add margin between buttons
+        }}
+        onClick={() => scrollToCard('Pace')}
+      >
+        Pace
+      </Button>
     </div>
   );
 };

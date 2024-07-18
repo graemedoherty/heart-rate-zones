@@ -11,25 +11,53 @@ html,
   flex-direction: column;
 }
 
+#light {
+  background: #ffffff;
+  color: black;
+}
+#dark {
+  background: #121212;
+  color: #ffffff;
+}
+
 .Main {
   display: flex;
   height: 100%;
   width: 100%;
 }
 
-.Sidebar {
-  width: 20%;
-  background-color: #f0f0f0;
+#light .Sidebar {
+  width: 15%;
+  margin: 1em;
+  background-color: #ffffff;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 12px;
+  color: rgb(18, 16, 16);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#dark .Sidebar {
+  width: 15%;
+  margin: 1em;
+  background-color: rgba(19, 18, 18, 0.3);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: rgb(18, 16, 16);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .Content {
-  width: 80%;
+  width: 100%;
   padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
@@ -43,5 +71,14 @@ html,
 }
 
 .MuiButton-root.active {
-  background-color: #000; /* Active button color */
+}
+
+.top-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-top,
+.right-top {
+  flex: 1;
 }
