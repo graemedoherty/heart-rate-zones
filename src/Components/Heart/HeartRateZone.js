@@ -1,28 +1,21 @@
-import React from 'react';
+// HeartRateZone.js
+import React, { useContext } from 'react';
 import '../../App.css';
 import PrettoSlider from '../../SliderStyle';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
-import { Button } from '@mui/material';
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
 import HeartDataTable from './HeartDataTable';
+import { ThemeContext } from '../../App';
 
-const HeartRateZone = ({
-  value,
-  ranges,
-  subtract,
-  add,
-  handleSliderChange,
-}) => {
+const HeartRateZone = ({ value, ranges, handleSliderChange }) => {
+  const { theme } = useContext(ThemeContext); // Use theme context
+
   return (
     <div className='HeartRateZone'>
-      <h1>Heart Rate Zones</h1>
       <div className='Slider-Row'>
-        <DirectionsRunIcon />
-        <Button onClick={subtract}>
-          <RemoveIcon sx={{ color: 'white' }} />
-        </Button>
+        <h1 id='bpm' style={{ fontSize: '2em' }}>
+          {`${value} `}
+          <span>bpm</span>
+        </h1>
+
         <PrettoSlider
           id='HeartRateSlider'
           aria-label='pretto slider'
@@ -32,15 +25,8 @@ const HeartRateZone = ({
           onChange={handleSliderChange}
           valueLabelDisplay='auto'
           aria-labelledby='slider-label'
+          theme={theme} // Pass theme here
         />
-        <Button onClick={add}>
-          <AddIcon sx={{ color: 'white' }} />
-        </Button>
-        <h1 id='bpm'>
-          {`${value}`}
-          <span style={{ fontSize: '0.5em' }}>bpm</span>
-        </h1>
-        <FavoriteIcon className='heart-pulse' />
       </div>
       <HeartDataTable ranges={ranges} />
     </div>

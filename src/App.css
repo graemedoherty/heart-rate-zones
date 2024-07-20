@@ -1,4 +1,13 @@
 /* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200&display=swap');
+
+:root {
+  --primary-color: #48abe0;
+  --secondary-color: #536390;
+  --font-color: #424242;
+  --bg-color: #fff;
+  --heading-color: #292922;
+}
 
 body,
 html,
@@ -9,15 +18,28 @@ html,
   width: 100%;
   display: flex;
   flex-direction: column;
+  font-family: 'Libre Franklin', sans-serif;
+  line-height: 2; /* 1.5 times the font size */
+  overflow: auto; /* Ensure the root element is scrollable */
+}
+.power-input-row {
+  display: flex;
+  align-items: center;
 }
 
-#light {
-  background: #ffffff;
-  color: black;
+.power-section {
+  height: 100vh; /* Ensure section is tall enough to observe */
+  margin-top: 50px; /* Adjust as needed */
 }
+
 #dark {
-  background: #121212;
+  background: black;
   color: #ffffff;
+}
+
+#dark h1,
+#dark h2 {
+  color: var(--primary-color);
 }
 
 .Main {
@@ -26,11 +48,10 @@ html,
   width: 100%;
 }
 
-#light .Sidebar {
+.Sidebar {
   width: 15%;
   margin: 1em;
-  background-color: #ffffff;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -38,29 +59,31 @@ html,
   justify-content: center;
   border-radius: 12px;
   color: rgb(18, 16, 16);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px 3px var(--primary-color);
+}
+
+#light .Sidebar {
+  background-color: #ffffff;
 }
 
 #dark .Sidebar {
-  width: 15%;
-  margin: 1em;
-  background-color: rgba(19, 18, 18, 0.3);
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  color: rgb(18, 16, 16);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: black;
 }
 
 .Content {
   width: 100%;
-  padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
+  font-family: 'Libre Franklin', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .button-group {
@@ -73,12 +96,150 @@ html,
 .MuiButton-root.active {
 }
 
-.top-row {
-  display: flex;
-  flex-direction: row;
-}
-
 .left-top,
 .right-top {
   flex: 1;
+}
+
+.content-main {
+  display: flex;
+}
+
+.section-left,
+.section-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  padding: 3em;
+}
+
+.section-right {
+  padding-left: 10px;
+}
+
+.Card {
+  position: relative;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+.links {
+  text-decoration: none;
+  color: rgb(89, 148, 167);
+}
+
+@media all and (max-width: 1250px) {
+  .content-main {
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    text-align: left !important;
+  }
+
+  .section-left,
+  .section-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* Ensure text alignment for each section */
+    text-align: center;
+    padding: 3em; /* You can adjust padding as needed */
+  }
+
+  .section-right {
+    padding-left: 10px; /* Adjust padding if needed */
+  }
+
+  #ftp-input {
+    margin: 0;
+    padding: 4px;
+  }
+
+  .Card {
+    margin-top: 30%;
+  }
+
+  .Sidebar {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-radius: 0;
+  }
+
+  .nav-btn {
+    width: 50% !important;
+  }
+
+  #theme-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2em;
+  }
+  table {
+    padding: 0 !important;
+    border: 1px solid white !important;
+    border-spacing: 0 !important; /* Ensure there is no spacing between table cells */
+    width: 100% !important;
+    text-align: center !important;
+  }
+  th {
+    padding: 0 !important; /* Remove padding from table header */
+    margin: 0 !important; /* Remove margin if needed */
+    border: 1px solid white !important;
+    text-align: center !important;
+  }
+
+  th,
+  td {
+    padding: 0 !important; /* Remove padding from table header and data cells */
+    margin: 0 !important; /* Remove margin if needed */
+    border: 1px solid white !important;
+    text-align: center !important;
+  }
+}
+
+@media all and (max-width: 1350px) {
+  .section-left,
+  .section-right {
+    padding: 2em;
+  }
+}
+@media all and (max-width: 400px) {
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  h1 {
+    font-size: 1rem !important; /* Adjust as needed */
+  }
+
+  h2 {
+    font-size: 0.75rem !important; /* Adjust as needed */
+  }
+
+  h3 {
+    font-size: 0.5rem !important; /* Adjust as needed */
+  }
+
+  h4 {
+    font-size: 0.375rem !important; /* Adjust as needed */
+  }
+
+  p,
+  ol,
+  li {
+    font-size: 1rem !important;
+  }
 }

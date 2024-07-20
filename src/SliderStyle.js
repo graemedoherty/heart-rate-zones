@@ -1,8 +1,9 @@
+// SliderStyle.js
 import { styled } from '@mui/material/styles';
 import { Slider } from '@mui/material';
 
-const PrettoSlider = styled(Slider)({
-  color: '#52af77',
+const PrettoSlider = styled(Slider)(({ theme }) => ({
+  color: theme === 'dark' ? '#fff' : '#000',
   height: 8,
   '& .MuiSlider-track': {
     border: 'none',
@@ -38,6 +39,6 @@ const PrettoSlider = styled(Slider)({
       transform: 'rotate(45deg)',
     },
   },
-});
+}));
 
 export default PrettoSlider;

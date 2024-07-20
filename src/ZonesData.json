@@ -1,7 +1,7 @@
 [
   {
     "id": "zone1",
-    "zone": "Zone 1",
+    "zone": "1",
     "feel": "Easy",
     "intensity": "50% - 60%",
     "target": "Warmup Zone",
@@ -9,24 +9,23 @@
   },
   {
     "id": "zone2",
-    "zone": "Zone 2",
+    "zone": "2",
     "feel": "Steady",
     "intensity": "60% - 70%",
     "target": "Fat Burn Zone",
-    "color": " #56b881"
+    "color": "#56b881"
   },
   {
     "id": "zone3",
-    "zone": "Zone 3",
+    "zone": "3",
     "feel": "Moderately Hard",
     "intensity": "70% - 80%",
     "target": "Aerobic Zone",
-    "color": "#ffd700",
-    "desc": "Improves Aerobic Fitness: Enhances endurance and stamina, making it easier to perform prolonged activities. Increases Fat Utilization: Trains the body to efficiently burn fat for energy, which is beneficial for long-duration events. Strengthens Muscles and Joints: Promotes the health of muscles and joints by providing sustained, moderate stress"
+    "color": "#ffd700"
   },
   {
     "id": "zone4",
-    "zone": "Zone 4",
+    "zone": "4",
     "feel": "Hard",
     "intensity": "80% - 90%",
     "target": "Anaerobic Zone",
@@ -34,7 +33,7 @@
   },
   {
     "id": "zone5",
-    "zone": "Zone 5",
+    "zone": "5",
     "feel": "Very Hard",
     "intensity": "90% - 100%",
     "target": "VO2 Max Zone",

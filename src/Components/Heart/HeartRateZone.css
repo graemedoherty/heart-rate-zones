@@ -1,5 +1,13 @@
 /* HeartRateZone.css */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200&display=swap');
 
+:root {
+  --primary-color: #48abe0;
+  --secondary-color: #536390;
+  --font-color: #424242;
+  --bg-color: #fff;
+  --heading-color: #292922;
+}
 .HeartRateZone {
   display: flex;
   flex-direction: column;
@@ -19,4 +27,19 @@
   display: flex;
   align-items: flex-end; /* Position the table at the bottom */
   width: 100%;
+}
+
+/* Hide last column for small screens */
+@media (max-width: 400px) {
+  .Heart-Data-Table .hide-on-mobile {
+    display: none;
+  }
+  /* Remove padding for TableCell */
+  .Heart-Data-Table .MuiTableCell-root {
+    padding: 0 !important;
+  }
+
+  .Heart-Data-Table .MuiTableHead-root .MuiTableCell-root {
+    padding: 0 !important;
+  }
 }
