@@ -11,10 +11,7 @@ const HeartRateZone = ({ value, ranges, handleSliderChange }) => {
   return (
     <div className='HeartRateZone'>
       <div className='Slider-Row'>
-        <h1 id='bpm' style={{ fontSize: '2em' }}>
-          {`${value} `}
-          <span>bpm</span>
-        </h1>
+        <h6>Slide to select Max HR</h6>
 
         <PrettoSlider
           id='HeartRateSlider'
@@ -23,11 +20,14 @@ const HeartRateZone = ({ value, ranges, handleSliderChange }) => {
           min={120}
           max={210}
           onChange={handleSliderChange}
-          valueLabelDisplay='auto'
-          aria-labelledby='slider-label'
           theme={theme} // Pass theme here
         />
+        <h1 id='bpm' style={{ fontSize: '2em' }}>
+          {`${value} `}
+          <span>bpm</span>
+        </h1>
       </div>
+
       <HeartDataTable ranges={ranges} />
     </div>
   );

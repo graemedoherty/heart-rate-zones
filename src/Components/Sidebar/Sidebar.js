@@ -12,7 +12,7 @@ const Sidebar = ({ scrollToCard, activeSection }) => {
           '&:hover': {
             backgroundColor: activeSection === 'Power' ? 'black' : '#ddd',
           },
-          marginBottom: 1, // Add margin between buttons
+          marginBottom: 0, // Add margin between buttons
         }}
         onClick={() => scrollToCard('Power')}
       >
@@ -26,7 +26,7 @@ const Sidebar = ({ scrollToCard, activeSection }) => {
           '&:hover': {
             backgroundColor: activeSection === 'Heart' ? 'black' : '#ddd',
           },
-          marginBottom: 1, // Add margin between buttons
+          marginBottom: 0, // Add margin between buttons
         }}
         onClick={() => scrollToCard('Heart')}
       >
@@ -40,7 +40,7 @@ const Sidebar = ({ scrollToCard, activeSection }) => {
           '&:hover': {
             backgroundColor: activeSection === 'Pace' ? 'black' : '#ddd',
           },
-          marginBottom: 1, // Add margin between buttons
+          marginBottom: 0, // Add margin between buttons
         }}
         onClick={() => scrollToCard('Pace')}
       >

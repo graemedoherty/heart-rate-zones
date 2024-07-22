@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import { ThemeContext } from '../../App';
 import './Power.css'; // Import your Power.css file
 
 const lightColors = [
@@ -20,7 +21,11 @@ const lightColors = [
   '#0288D1', // Blue
 ];
 
-const PowerZoneCalculator = ({ theme }) => {
+const PowerZoneCalculator = () => {
+  const theme = useContext(ThemeContext);
+  useEffect(() => {
+    console.log('Calc ', theme.theme);
+  });
   const [ftp, setFtp] = useState(200); // Initial FTP value
   const [ranges, setRanges] = useState(null);
 
@@ -28,7 +33,7 @@ const PowerZoneCalculator = ({ theme }) => {
   const calculatePowerZones = useCallback(() => {
     const darkColors = lightColors; // Use light colors for text in dark mode
 
-    const colors = theme === 'dark' ? darkColors : lightColors;
+    const colors = theme.theme === 'dark' ? darkColors : lightColors;
 
     const calculatedRanges = [
       {
@@ -126,97 +131,85 @@ const PowerZoneCalculator = ({ theme }) => {
               inputProps: { min: 1 }, // Ensure FTP is positive
               style: {
                 boxShadow: '0 0 10px 3px #48abe0',
-                borderColor: theme === 'dark' ? 'white' : 'black',
-                color: theme === 'dark' ? 'white' : 'black',
+                borderColor: theme.theme === 'dark' ? 'white' : 'black',
+                color: theme.theme === 'dark' ? 'white' : 'black',
               },
             }}
             InputLabelProps={{
               style: {
                 boxShadow: '0 0 10px 3px #48abe0',
-                color: theme === 'dark' ? 'white' : 'default',
+                color: theme.theme === 'dark' ? 'white' : 'default',
               },
             }}
             required
           />
         </div>
+        <h5>FTP = Average Power × 0.95</h5>
       </div>
 
-      <TableContainer component={Paper}>
-        <Table sx={{}} aria-label='simple table'>
-          <TableHead>
+      <TableContainer
+        component={Paper}
+        style={{
+          backgroundColor: theme.theme === 'light' ? 'white' : 'black',
+        }}
+      >
+        <Table
+          aria-label='simple table'
+          style={{
+            backgroundColor: theme.theme === 'light' ? 'white' : 'black',
+          }}
+        >
+          <TableHead
+            style={{
+              backgroundColor: theme.theme === 'light' ? 'white' : 'black',
+            }}
+          >
             <TableRow
               id='Table-Header'
               style={{
-                backgroundColor: theme === 'light' ? 'white' : 'black',
+                backgroundColor: theme.theme === 'light' ? 'white' : 'black',
               }}
             >
-              <TableCell
-                align='center'
-                sx={{
-                  borderLeft: 'none',
-                  borderRight: 'none',
-                }}
-              >
+              <TableCell align='center' sx={{ flex: 1 }}>
                 <Typography
                   variant='body2'
-                  sx={{ color: theme === 'light' ? 'black' : 'white' }}
+                  sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
                 >
                   Zones
                 </Typography>
               </TableCell>
-              <TableCell
-                align='center'
-                sx={{
-                  borderLeft: 'none',
-                  borderRight: 'none',
-                }}
-              >
+              <TableCell align='center' sx={{ flex: 1 }}>
                 <Typography
                   variant='body2'
-                  sx={{ color: theme === 'light' ? 'black' : 'white' }}
+                  sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
                 >
-                  Range (Watts)
+                  (Watts)
                 </Typography>
               </TableCell>
-              <TableCell
-                align='right'
-                sx={{
-                  borderLeft: 'none',
-                  borderRight: 'none',
-                }}
-              >
+              <TableCell align='center' sx={{ flex: 1 }}>
                 <Typography
                   variant='body2'
-                  sx={{ color: theme === 'light' ? 'black' : 'white' }}
+                  sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
                 >
-                  Low End (% of FTP)
+                  Low%FTP
                 </Typography>
               </TableCell>
-              <TableCell
-                align='left'
-                sx={{
-                  borderLeft: 'none',
-                  borderRight: 'none',
-                }}
-              >
+              <TableCell align='left' sx={{ flex: 1 }}>
                 <Typography
                   variant='body2'
-                  sx={{ color: theme === 'light' ? 'black' : 'white' }}
+                  sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
                 >
-                  High End (% of FTP)
+                  High%FTP
                 </Typography>
               </TableCell>
               <TableCell
                 align='center'
                 className='hide-on-small'
-                sx={{
-                  borderLeft: 'none',
-                  borderRight: 'none',
-                }}
+                sx={{ flex: 1 }}
               >
                 <Typography
                   variant='body2'
-                  sx={{ color: theme === 'light' ? 'black' : 'white' }}
+                  sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
                 >
                   Feel
                 </Typography>
@@ -228,7 +221,8 @@ const PowerZoneCalculator = ({ theme }) => {
               <TableRow
                 key={zone.zone}
                 sx={{
-                  backgroundColor: theme === 'dark' ? 'black' : zone.color,
+                  backgroundColor:
+                    theme.theme === 'dark' ? 'black' : zone.color,
                 }}
               >
                 <TableCell
@@ -236,8 +230,8 @@ const PowerZoneCalculator = ({ theme }) => {
                   scope='row'
                   sx={{
                     color: 'black',
-                    border: `1px solid ${lightColors[index]}`,
                     background: lightColors[index],
+                    flex: 1,
                   }}
                   align='center'
                 >
@@ -246,19 +240,29 @@ const PowerZoneCalculator = ({ theme }) => {
                 <TableCell
                   align='center'
                   sx={{
-                    color: theme === 'light' ? 'black' : lightColors[index],
-                    border: `1px solid ${lightColors[index]}`,
+                    color:
+                      theme.theme === 'light' ? 'black' : lightColors[index],
+                    flex: 1,
                   }}
                 >
-                  <Typography variant='body2'>{`${zone.range[0]} - ${
-                    zone.range[1] === Infinity ? 'Infinity' : zone.range[1]
-                  }`}</Typography>
+                  <Typography
+                    variant='body2'
+                    sx={{
+                      fontWeight: 'bold',
+                      fontSize: '1.2rem', // Adjust fontSize as needed
+                    }}
+                  >
+                    {`${zone.range[0]} - ${
+                      zone.range[1] === Infinity ? 'Infinity' : zone.range[1]
+                    }`}
+                  </Typography>
                 </TableCell>
                 <TableCell
                   align='center'
                   sx={{
-                    color: theme === 'light' ? 'black' : lightColors[index],
-                    border: `1px solid ${lightColors[index]}`,
+                    color:
+                      theme.theme === 'light' ? 'black' : lightColors[index],
+                    flex: 1,
                   }}
                 >
                   <Typography variant='body2'>
@@ -268,8 +272,9 @@ const PowerZoneCalculator = ({ theme }) => {
                 <TableCell
                   align='center'
                   sx={{
-                    color: theme === 'light' ? 'black' : lightColors[index],
-                    border: `1px solid ${lightColors[index]}`,
+                    color:
+                      theme.theme === 'light' ? 'black' : lightColors[index],
+                    flex: 1,
                   }}
                 >
                   <Typography variant='body2'>
@@ -280,8 +285,9 @@ const PowerZoneCalculator = ({ theme }) => {
                   align='center'
                   className='hide-on-small'
                   sx={{
-                    color: theme === 'light' ? 'black' : lightColors[index],
-                    border: `1px solid ${lightColors[index]}`,
+                    color:
+                      theme.theme === 'light' ? 'black' : lightColors[index],
+                    flex: 1,
                   }}
                 >
                   <Typography variant='body2'>{zone.feel}</Typography>

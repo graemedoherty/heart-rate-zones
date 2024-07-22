@@ -12,18 +12,19 @@ import zonesData from '../../ZonesData.json'; // Adjust the path as needed
 import { ThemeContext } from '../../App';
 import './HeartRateZone.css';
 
-const HeartDataTable = (props) => {
-  const { theme } = useContext(ThemeContext); // Use theme context
+const HeartDataTable = ({ ranges }) => {
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     console.log('Heart Theme ', theme);
   }, [theme]);
 
-  if (!props.ranges) {
-    return <div>Loading...</div>; // Or handle loading state appropriately
+  if (!ranges) {
+    return <div>Loading...</div>;
   }
 
-  // Define styles using CSS variables
+  // Common styles
+  const textColor = theme === 'dark' ? '#48abe0' : 'black';
   const headerCellStyles = {
     color: theme === 'dark' ? 'white' : 'black',
     backgroundColor: theme === 'dark' ? 'black' : 'white',
@@ -31,38 +32,44 @@ const HeartDataTable = (props) => {
 
   const getRowStyles = (zoneColor) => ({
     backgroundColor: theme === 'dark' ? 'black' : zoneColor,
-    color: theme === 'dark' ? '#48abe0' : 'black',
+    color: textColor,
+    marginBottom: '10px', // Add space between rows
     '&:last-child td, &:last-child th': { border: 0 },
   });
 
+  const cellTypographyStyles = {
+    color: textColor,
+    textAlign: 'center',
+  };
+
   return (
-    <TableContainer component={Paper}>
+    <TableContainer
+      component={Paper}
+      style={{
+        backgroundColor: theme === 'light' ? 'white' : 'black',
+      }}
+    >
       <Table className='Heart-Data-Table' aria-label='simple table'>
         <TableHead>
           <TableRow id='Table-Header'>
-            <TableCell sx={headerCellStyles}>
-              <Typography variant='body2'>Zones</Typography>
-            </TableCell>
-            <TableCell
-              align='right'
-              className='hide-on-mobile'
-              sx={headerCellStyles}
-            >
-              <Typography variant='body2'>Feel</Typography>
-            </TableCell>
-            <TableCell align='right' sx={headerCellStyles}>
-              <Typography variant='body2'>Range (BPM)</Typography>
-            </TableCell>
-            <TableCell align='right' sx={headerCellStyles}>
-              <Typography variant='body2'>Intensity</Typography>
-            </TableCell>
-            <TableCell
-              align='right'
-              className='hide-on-mobile'
-              sx={headerCellStyles}
-            >
-              <Typography variant='body2'>Target Zones</Typography>
-            </TableCell>
+            {['Zones', 'Feel', 'Range (BPM)', 'Intensity', 'Target Zones'].map(
+              (header, index) => (
+                <TableCell
+                  key={index}
+                  align={header === 'Zones' ? 'left' : 'right'}
+                  className={
+                    header === 'Feel' || header === 'Target Zones'
+                      ? 'hide-on-mobile'
+                      : ''
+                  }
+                  sx={headerCellStyles}
+                >
+                  <Typography variant='body2' sx={{ textAlign: 'center' }}>
+                    {header}
+                  </Typography>
+                </TableCell>
+              )
+            )}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -74,31 +81,34 @@ const HeartDataTable = (props) => {
                 sx={{
                   color: 'black',
                   background: zone.color,
+                  textAlign: 'center',
                 }}
               >
-                <Typography variant='body1'>{zone.zone}</Typography>
+                <Typography variant='body1' sx={{ color: 'black' }}>
+                  {zone.zone}
+                </Typography>
               </TableCell>
               <TableCell align='right' className='hide-on-mobile'>
-                <Typography
-                  variant='body2'
-                  sx={{ color: theme === 'dark' ? '#48abe0' : 'black' }}
-                >
+                <Typography variant='body2' sx={cellTypographyStyles}>
                   {zone.feel}
                 </Typography>
               </TableCell>
               <TableCell align='right'>
                 <Typography
                   variant='body1'
-                  sx={{ color: theme === 'dark' ? '#48abe0' : 'black' }}
-                >{`${props.ranges[zone.id] ? props.ranges[zone.id][0] : ''} - ${
-                  props.ranges[zone.id] ? props.ranges[zone.id][1] : ''
-                }`}</Typography>
+                  sx={{
+                    ...cellTypographyStyles,
+                    fontWeight: 'bold',
+                    fontSize: '1.2rem', // Adjust fontSize as needed
+                  }}
+                >
+                  {`${ranges[zone.id] ? ranges[zone.id][0] : ''} - ${
+                    ranges[zone.id] ? ranges[zone.id][1] : ''
+                  }`}
+                </Typography>
               </TableCell>
               <TableCell align='right'>
-                <Typography
-                  variant='body2'
-                  sx={{ color: theme === 'dark' ? '#48abe0' : 'black' }}
-                >
+                <Typography variant='body2' sx={cellTypographyStyles}>
                   {zone.intensity}
                 </Typography>
               </TableCell>

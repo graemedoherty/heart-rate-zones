@@ -93,6 +93,12 @@ html,
   align-items: center;
 }
 
+.Slider-Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .MuiButton-root.active {
 }
 
@@ -104,7 +110,7 @@ html,
 .content-main {
   display: flex;
 }
-
+.section-bottom,
 .section-left,
 .section-right {
   flex: 1;
@@ -114,16 +120,37 @@ html,
   padding: 3em;
 }
 
+.section-right ul {
+  list-style-type: none; /* Remove default list bullets */
+  padding: 0; /* Remove default padding */
+  margin: 5; /* Remove default margin */
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  align-items: left; /* Center items horizontally */
+}
+
+.section-bottom {
+  width: 50% !important;
+  text-align: justify;
+  line-height: 3;
+}
+
 .section-right {
   padding-left: 10px;
 }
 
 .Card {
   position: relative;
+  height: min-content;
 }
 
 .table-container {
   margin-top: 20px;
+}
+
+.MuiTable-root {
+  border: none !important;
+  text-align: center !important;
 }
 
 .links {
@@ -145,12 +172,15 @@ html,
     display: flex;
     flex-direction: column;
     /* Ensure text alignment for each section */
-    text-align: center;
+    text-align: left;
     padding: 3em; /* You can adjust padding as needed */
   }
 
-  .section-right {
-    padding-left: 10px; /* Adjust padding if needed */
+  .section-bottom {
+    width: 80% !important;
+    text-align: justify;
+    line-height: 1.5;
+    justify-content: center;
   }
 
   #ftp-input {
@@ -189,15 +219,16 @@ html,
   }
   table {
     padding: 0 !important;
-    border: 1px solid white !important;
-    border-spacing: 0 !important; /* Ensure there is no spacing between table cells */
+    border: 0;
     width: 100% !important;
-    text-align: center !important;
+    text-align: center;
+    border-spacing: 0 1em !important;
+    border-collapse: separate !important;
   }
   th {
     padding: 0 !important; /* Remove padding from table header */
     margin: 0 !important; /* Remove margin if needed */
-    border: 1px solid white !important;
+    vertical-align: middle;
     text-align: center !important;
   }
 
@@ -205,7 +236,7 @@ html,
   td {
     padding: 0 !important; /* Remove padding from table header and data cells */
     margin: 0 !important; /* Remove margin if needed */
-    border: 1px solid white !important;
+    font-size: 0.1em;
     text-align: center !important;
   }
 }
@@ -217,7 +248,7 @@ html,
   }
 }
 @media all and (max-width: 400px) {
-  p {
+  .section-left p {
     text-align: justify;
     text-justify: inter-word;
   }
