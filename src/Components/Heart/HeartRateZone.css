@@ -19,7 +19,21 @@
 .Slider-Row {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+#slider-bottom {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+#slider-bottom > div {
+  flex: 1; /* Each child will take up 50% of the width */
+  margin: 0 10px; /* Optional: Add margin for spacing */
 }
 
 .Heart-Data-Table {

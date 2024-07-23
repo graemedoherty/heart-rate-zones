@@ -9,6 +9,17 @@
   --heading-color: #292922;
 }
 
+/* Reset padding for h1, h2, and p tags */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+}
+
 body,
 html,
 #root {
@@ -19,12 +30,53 @@ html,
   display: flex;
   flex-direction: column;
   font-family: 'Libre Franklin', sans-serif;
-  line-height: 2; /* 1.5 times the font size */
+  line-height: 1.5; /* 1.5 times the font size */
   overflow: auto; /* Ensure the root element is scrollable */
 }
 .power-input-row {
   display: flex;
   align-items: center;
+}
+
+.formula-container {
+  text-align: center;
+  margin: 1em 0; /* Adjust margin as needed for spacing */
+}
+
+/* General styles for formula */
+.formula {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.2em; /* Adjust font size as needed */
+  border: 1px solid;
+  padding: 0.5em; /* Adjust padding as needed */
+}
+.stress-tests {
+  display: flex;
+}
+.stress-item {
+  margin-right: 3em;
+}
+
+/* Light mode specific styles */
+#light .formula {
+  color: #000; /* Black text color for light mode */
+  border-color: #ddd; /* Light gray border for light mode */
+  background-color: #f9f9f9; /* Light gray background for light mode */
+}
+
+/* Dark mode specific styles */
+#dark .formula {
+  color: #fff; /* White text color for dark mode */
+  border-color: #444; /* Dark gray border for dark mode */
+  background-color: #333; /* Dark gray background for dark mode */
+}
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .power-section {
@@ -50,16 +102,16 @@ html,
 
 .Sidebar {
   width: 15%;
-  margin: 1em;
+
   padding: 10px;
-  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+
   color: rgb(18, 16, 16);
-  box-shadow: 0 0 10px 3px var(--primary-color);
+  box-shadow: 0 0 1px 1px var(--primary-color);
 }
 
 #light .Sidebar {
@@ -101,6 +153,9 @@ html,
 
 .MuiButton-root.active {
 }
+.MuiTableContainer-root {
+  box-shadow: none !important;
+}
 
 .left-top,
 .right-top {
@@ -110,33 +165,36 @@ html,
 .content-main {
   display: flex;
 }
-.section-bottom,
+
 .section-left,
 .section-right {
   flex: 1;
   display: flex;
   flex-direction: column;
   text-align: justify;
-  padding: 3em;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 
 .section-right ul {
   list-style-type: none; /* Remove default list bullets */
   padding: 0; /* Remove default padding */
-  margin: 5; /* Remove default margin */
+  margin: 5;
   display: flex;
   flex-direction: column; /* Align items vertically */
   align-items: left; /* Center items horizontally */
-}
-
-.section-bottom {
-  width: 50% !important;
-  text-align: justify;
   line-height: 3;
 }
 
+.section-bottom {
+  display: flex;
+  width: 100%;
+  text-align: justify;
+  line-height: 2;
+}
+
 .section-right {
-  padding-left: 10px;
+  padding-top: 0 !important;
 }
 
 .Card {
@@ -146,6 +204,23 @@ html,
 
 .table-container {
   margin-top: 20px;
+}
+
+MuiTableContainer-root {
+  box-shadow: none;
+}
+
+.zones {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table {
+  border-spacing: 0 1em !important;
+  border-collapse: separate !important;
 }
 
 .MuiTable-root {
@@ -165,6 +240,13 @@ html,
     overflow-y: auto;
     text-align: left !important;
   }
+  .stress-tests {
+    flex-direction: column;
+  }
+  .section-header {
+    justify-content: center;
+    align-items: center;
+  }
 
   .section-left,
   .section-right {
@@ -173,14 +255,18 @@ html,
     flex-direction: column;
     /* Ensure text alignment for each section */
     text-align: left;
-    padding: 3em; /* You can adjust padding as needed */
+    padding-left: 1em;
+    padding-right: 1em;
+
+    padding-bottom: 0 !important;
   }
 
   .section-bottom {
-    width: 80% !important;
+    width: 100%;
     text-align: justify;
-    line-height: 1.5;
+    line-height: 2;
     justify-content: center;
+    flex-direction: column;
   }
 
   #ftp-input {
@@ -189,7 +275,6 @@ html,
   }
 
   .Card {
-    margin-top: 30%;
   }
 
   .Sidebar {
@@ -199,12 +284,37 @@ html,
     box-sizing: border-box;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     border-radius: 0;
+  }
+
+  .Dropdown-Menu {
+    position: absolute;
+    top: 60px; /* Adjust as needed */
+    right: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    z-index: 1000; /* Ensure dropdown is above other content */
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .Dropdown-Menu button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .Dropdown-Menu button:hover {
+    background-color: #f0f0f0;
   }
 
   .nav-btn {
@@ -218,11 +328,10 @@ html,
     margin: 2em;
   }
   table {
-    padding: 0 !important;
     border: 0;
     width: 100% !important;
     text-align: center;
-    border-spacing: 0 1em !important;
+    border-spacing: 0 0.3em !important;
     border-collapse: separate !important;
   }
   th {
@@ -234,7 +343,7 @@ html,
 
   th,
   td {
-    padding: 0 !important; /* Remove padding from table header and data cells */
+    padding: 1em !important; /* Remove padding from table header and data cells */
     margin: 0 !important; /* Remove margin if needed */
     font-size: 0.1em;
     text-align: center !important;
@@ -248,6 +357,7 @@ html,
   }
 }
 @media all and (max-width: 400px) {
+  .section-right,
   .section-left p {
     text-align: justify;
     text-justify: inter-word;

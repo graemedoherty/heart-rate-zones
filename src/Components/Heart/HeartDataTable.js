@@ -10,6 +10,9 @@ import Typography from '@mui/material/Typography';
 import BasicModal from '../../BasicModal';
 import zonesData from '../../ZonesData.json'; // Adjust the path as needed
 import { ThemeContext } from '../../App';
+import { Button } from '@mui/material';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import './HeartRateZone.css';
 
 const HeartDataTable = ({ ranges }) => {
@@ -18,6 +21,12 @@ const HeartDataTable = ({ ranges }) => {
   useEffect(() => {
     console.log('Heart Theme ', theme);
   }, [theme]);
+
+  const exportToPDF = () => {
+    const pdf = new jsPDF();
+    pdf.autoTable({ html: '.Heart-Data-Table' });
+    pdf.save('heart-rate-zones.pdf');
+  };
 
   if (!ranges) {
     return <div>Loading...</div>;
@@ -40,6 +49,7 @@ const HeartDataTable = ({ ranges }) => {
   const cellTypographyStyles = {
     color: textColor,
     textAlign: 'center',
+    whiteSpace: 'nowrap',
   };
 
   return (
@@ -100,6 +110,7 @@ const HeartDataTable = ({ ranges }) => {
                     ...cellTypographyStyles,
                     fontWeight: 'bold',
                     fontSize: '1.2rem', // Adjust fontSize as needed
+                    whiteSpace: 'nowrap',
                   }}
                 >
                   {`${ranges[zone.id] ? ranges[zone.id][0] : ''} - ${
@@ -119,6 +130,7 @@ const HeartDataTable = ({ ranges }) => {
           ))}
         </TableBody>
       </Table>
+      <Button onClick={exportToPDF}>Export to PDF</Button>
     </TableContainer>
   );
 };

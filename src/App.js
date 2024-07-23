@@ -1,12 +1,11 @@
-import React, { useEffect, useState, useRef, createContext } from 'react';
-
+import React, { useState, useRef, createContext, useEffect } from 'react';
 import Card from './Components/Card/Card';
-
+import MenuIcon from '@mui/icons-material/Menu';
 import ThemeSwitch from './Components/ThemeSwitch/ThemeSwitch';
 import PowerZoneData from './Components/Power/PowerZoneData';
 import HeartRateZoneData from './Components/Heart/HeartRateZoneData';
-
 import NavButton from './Components/NavButton/NavButton';
+import PaceZoneData from './Components/Pace/PaceZoneData';
 import './App.css';
 
 export const ThemeContext = createContext(null);
@@ -14,9 +13,29 @@ export const ThemeContext = createContext(null);
 function App() {
   const [activeSection, setActiveSection] = useState('Power');
   const [theme, setTheme] = useState('light');
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1250);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 1250);
+  };
+
+  useEffect(() => {
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   const powerCardRef = useRef(null);
@@ -87,26 +106,89 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className='Main' id={theme}>
         <div className='Sidebar'>
-          <NavButton
-            label='Power'
-            isActive={activeSection === 'Power'}
-            onClick={() => scrollToCard('Power')}
-          />
-          <NavButton
-            label='Heart'
-            isActive={activeSection === 'Heart'}
-            onClick={() => scrollToCard('Heart')}
-          />
-          <NavButton
-            label='Pace'
-            isActive={activeSection === 'Pace'}
-            onClick={() => scrollToCard('Pace')}
-          />
-          <ThemeSwitch />
+          {isMobile ? (
+            <>
+              <h1>Training Zones</h1>
+              <MenuIcon
+                sx={{ fontSize: 40 }}
+                onClick={toggleDropdown}
+                style={{
+                  cursor: 'pointer',
+                  color: theme === 'dark' ? 'white' : 'black',
+                }}
+              />
+            </>
+          ) : (
+            <>
+              <div className='Sidebar-Content'>
+                <ThemeSwitch />
+                <NavButton
+                  dropdown={false}
+                  style={{ color: theme === 'dark' ? 'white' : 'black' }}
+                  label='Power'
+                  isActive={activeSection === 'Power'}
+                  onClick={() => scrollToCard('Power')}
+                />
+                <NavButton
+                  dropdown={false}
+                  style={{ color: theme === 'dark' ? 'white' : 'black' }}
+                  label='Heart'
+                  isActive={activeSection === 'Heart'}
+                  onClick={() => scrollToCard('Heart')}
+                />
+                <NavButton
+                  dropdown={false}
+                  style={{ color: theme === 'dark' ? 'white' : 'black' }}
+                  label='Pace'
+                  isActive={activeSection === 'Pace'}
+                  onClick={() => scrollToCard('Pace')}
+                />
+              </div>
+            </>
+          )}
+          {isMobile && isDropdownOpen && (
+            <div
+              className='Dropdown-Menu'
+              style={{ background: theme === 'dark' ? 'black' : 'white' }}
+            >
+              <ThemeSwitch />
+              <NavButton
+                dropdown={true}
+                label='Power'
+                isActive={activeSection === 'Power'}
+                onClick={() => {
+                  scrollToCard('Power');
+                  setIsDropdownOpen(false);
+                }}
+              />
+              <NavButton
+                dropdown={true}
+                label='Heart'
+                isActive={activeSection === 'Heart'}
+                onClick={() => {
+                  scrollToCard('Heart');
+                  setIsDropdownOpen(false);
+                }}
+              />
+              <NavButton
+                dropdown={true}
+                label='Pace'
+                isActive={activeSection === 'Pace'}
+                onClick={() => {
+                  scrollToCard('Pace');
+                  setIsDropdownOpen(false);
+                }}
+              />
+            </div>
+          )}
         </div>
 
         <div className='Content'>
           <Card ref={powerCardRef}>
+            <div className='section-header'>
+              <h1>Power Zone</h1>
+            </div>
+
             <PowerZoneData />
           </Card>
           <br />
@@ -114,7 +196,9 @@ function App() {
             <HeartRateZoneData />
           </Card>
           <br />
-          <Card ref={paceCardRef}></Card>
+          <Card ref={paceCardRef}>
+            <PaceZoneData />
+          </Card>
         </div>
       </div>
     </ThemeContext.Provider>

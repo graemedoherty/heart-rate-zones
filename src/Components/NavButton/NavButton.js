@@ -1,9 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Button } from '@mui/material';
 import { ThemeContext } from '../../App';
 
-const NavButton = ({ label, isActive, onClick }) => {
-  const theme = useContext(ThemeContext);
+const NavButton = ({ label, isActive, onClick, dropdown }) => {
+  const { theme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    console.log('Dropdown', dropdown);
+  });
 
   return (
     <Button
@@ -11,26 +15,33 @@ const NavButton = ({ label, isActive, onClick }) => {
       sx={{
         width: '90%',
         marginTop: '1em',
-        color: isActive ? 'black' : theme.theme === 'light' ? 'black' : 'white',
+        color: dropdown
+          ? theme === 'light'
+            ? 'black'
+            : 'white'
+          : isActive
+          ? 'black'
+          : theme === 'light'
+          ? 'black'
+          : 'white',
         border: '1px solid gray',
         backgroundColor: isActive
           ? '#48abe0'
-          : theme.theme === 'light'
+          : theme === 'light'
           ? 'white'
           : 'black',
-        boxShadow: isActive ? '0 0 10px 3px #48abe0' : 'none',
         '&:hover': {
           backgroundColor: isActive
             ? '#48abe0'
-            : theme.theme === 'light'
+            : theme === 'light'
             ? '#ddd'
             : '#333',
         },
         padding: {
-          xs: '0', // Remove padding for screens <= 600px
-          sm: '0', // Remove padding for screens <= 960px
-          md: '0', // Remove padding for screens <= 1200px
-          lg: '1em', // Default padding for larger screens
+          xs: '0.5em',
+          sm: '0.5em',
+          md: '0.5em',
+          lg: '1em',
         },
         transition: 'transform 0.3s', // Smooth transition
       }}

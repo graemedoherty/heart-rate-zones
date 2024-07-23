@@ -7,8 +7,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
+
+import { Button } from '@mui/material';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import { ThemeContext } from '../../App';
+import PrettoSlider from '../../SliderStyle';
 import './Power.css'; // Import your Power.css file
 
 const lightColors = [
@@ -21,11 +25,15 @@ const lightColors = [
   '#0288D1', // Blue
 ];
 
+const exportToPDF = () => {
+  const pdf = new jsPDF();
+  pdf.autoTable({ html: '#power-table' });
+  pdf.save('power-training-zones.pdf');
+};
+
 const PowerZoneCalculator = () => {
+  const [value, setValue] = useState(170);
   const theme = useContext(ThemeContext);
-  useEffect(() => {
-    console.log('Calc ', theme.theme);
-  });
   const [ftp, setFtp] = useState(200); // Initial FTP value
   const [ranges, setRanges] = useState(null);
 
@@ -108,9 +116,9 @@ const PowerZoneCalculator = () => {
     calculatePowerZones();
   }, [ftp, calculatePowerZones]); // Dependency array includes ftp and calculatePowerZones
 
-  // Handler for updating FTP
-  const handleFtpChange = (event) => {
-    setFtp(parseInt(event.target.value, 10));
+  const handleSliderChange = (event, newValue) => {
+    setValue(newValue);
+    setFtp(newValue); // Update the FTP value when the slider changes
   };
 
   if (!ranges) {
@@ -121,30 +129,20 @@ const PowerZoneCalculator = () => {
     <div className='power-zone-container'>
       <div className='power-input-row'>
         <h5>Enter your estimated FTP </h5>
-        <div>
-          <TextField
-            id='ftp-input'
-            value={ftp}
-            onChange={handleFtpChange}
-            type='number'
-            InputProps={{
-              inputProps: { min: 1 }, // Ensure FTP is positive
-              style: {
-                boxShadow: '0 0 10px 3px #48abe0',
-                borderColor: theme.theme === 'dark' ? 'white' : 'black',
-                color: theme.theme === 'dark' ? 'white' : 'black',
-              },
-            }}
-            InputLabelProps={{
-              style: {
-                boxShadow: '0 0 10px 3px #48abe0',
-                color: theme.theme === 'dark' ? 'white' : 'default',
-              },
-            }}
-            required
+        <div className='power-zone-container'>
+          <Typography component='span' variant='h1' sx={{ fontSize: '4em' }}>
+            {`${value}`}
+          </Typography>
+          <PrettoSlider
+            id='PowerZoneSlider'
+            aria-label='pretto slider'
+            value={typeof value === 'number' ? value : 0}
+            min={120}
+            max={220}
+            onChange={handleSliderChange}
+            theme={theme.theme}
           />
         </div>
-        <h5>FTP = Average Power × 0.95</h5>
       </div>
 
       <TableContainer
@@ -154,6 +152,7 @@ const PowerZoneCalculator = () => {
         }}
       >
         <Table
+          id='power-table'
           aria-label='simple table'
           style={{
             backgroundColor: theme.theme === 'light' ? 'white' : 'black',
@@ -183,7 +182,7 @@ const PowerZoneCalculator = () => {
                   variant='body2'
                   sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
                 >
-                  (Watts)
+                  Watts
                 </Typography>
               </TableCell>
               <TableCell align='center' sx={{ flex: 1 }}>
@@ -191,7 +190,9 @@ const PowerZoneCalculator = () => {
                   variant='body2'
                   sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
                 >
-                  Low%FTP
+                  LOW%
+                  <br />
+                  FTP
                 </Typography>
               </TableCell>
               <TableCell align='left' sx={{ flex: 1 }}>
@@ -199,7 +200,9 @@ const PowerZoneCalculator = () => {
                   variant='body2'
                   sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
                 >
-                  High%FTP
+                  High%
+                  <br />
+                  FTP
                 </Typography>
               </TableCell>
               <TableCell
@@ -249,7 +252,8 @@ const PowerZoneCalculator = () => {
                     variant='body2'
                     sx={{
                       fontWeight: 'bold',
-                      fontSize: '1.2rem', // Adjust fontSize as needed
+                      fontSize: '1.5rem', // Adjust fontSize as needed
+                      whiteSpace: 'nowrap',
                     }}
                   >
                     {`${zone.range[0]} - ${
@@ -295,6 +299,7 @@ const PowerZoneCalculator = () => {
               </TableRow>
             ))}
           </TableBody>
+          <Button onClick={exportToPDF}>Export Table to PDF</Button>
         </Table>
       </TableContainer>
     </div>
