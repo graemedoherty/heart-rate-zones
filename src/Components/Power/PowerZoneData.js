@@ -1,7 +1,7 @@
 import React from 'react';
 import PowerZoneCalculator from './PowerZoneCalculator';
 import DividerText from '../Divider/Divider';
-
+import { Slide } from '@mui/material';
 import './Power.css';
 import '../../App.css';
 
@@ -9,137 +9,199 @@ const PowerZoneData = () => {
   return (
     <>
       <div className='content-main'>
-        <div className='section-left'>
-          <div>
-            <h2>What is Power Zone training?</h2>
-            <p>
-              Power zone training in running is a structured approach to
-              training that categorizes different intensities of effort into
-              specific zones based on physiological thresholds such as heart
-              rate, pace, or perceived exertion. The concept is similar to other
-              training methodologies like heart rate zone training or pace-based
-              training, but it specifically focuses on power output.
-            </p>
-            <h2>Benefits of Power Zone Training</h2>
-            <ol>
-              <li>
-                Precision: Power is a direct measure of effort, making it more
-                precise than heart rate or perceived exertion.
-              </li>
-              <li>
-                Consistency: Unlike heart rate, which can be affected by
-                external factors (e.g., temperature, hydration), power remains
-                consistent.
-              </li>
-              <li>
-                Adaptability: Power zones can be adjusted as the runner's
-                fitness improves.
-              </li>
-            </ol>
-            <h2>How to Work Out Training Zones Using FTP</h2>
+        <Slide
+          in={true}
+          direction='right'
+          mountOnEnter
+          unmountOnExit
+          // style={{ transformOrigin: '0 0 0' }}
+          {...(true ? { timeout: 500 } : {})}
+        >
+          <div className='section-left'>
+            <div>
+              <h2>What is Power Zone training?</h2>
+              <p>
+                Power zone training in running is a structured approach to
+                training that categorizes different intensities of effort into
+                specific zones based on physiological thresholds such as heart
+                rate, pace, or perceived exertion. The concept is similar to
+                other training methodologies like heart rate zone training or
+                pace-based training, but it specifically focuses on power
+                output.
+              </p>
+              <h2>Benefits of Power Zone Training</h2>
+              <ol>
+                <li>
+                  Precision: Power is a direct measure of effort, making it more
+                  precise than heart rate or perceived exertion.
+                </li>
+                <li>
+                  Consistency: Unlike heart rate, which can be affected by
+                  external factors (e.g., temperature, hydration), power remains
+                  consistent.
+                </li>
+                <li>
+                  Adaptability: Power zones can be adjusted as the runner's
+                  fitness improves.
+                </li>
+              </ol>
+              <h2>How to Work Out Training Zones Using FTP</h2>
 
-            <p>
-              FTP(Functional Threshold Power) is the highest average power you
-              can sustain for about an hour. It is a critical metric for
-              establishing power zones.
-            </p>
+              <p>
+                The FTP (Functional Threshold Power) for both cyclists and
+                runners is the maximum power an athlete can sustain in a steady
+                state without experiencing significant fatigue. Essentially, it
+                represents the workload that can be maintained for an hour
+                without a significant buildup of metabolic byproducts, like
+                lactic acid.
+              </p>
 
-            <h2>There are several methods to estimate your FTP:</h2>
-            <ol>
-              <li>
-                <a
-                  href='https://www.youtube.com/watch?v=IT_Qk9ipMYk&ab_channel=GlobalTriathlonNetwork'
-                  className='links'
+              <h2>There are several methods to estimate your FTP:</h2>
+              <ol>
+                <li>
+                  <a
+                    href='https://www.youtube.com/watch?v=IT_Qk9ipMYk&ab_channel=GlobalTriathlonNetwork'
+                    className='links'
+                  >
+                    20-Minute Test:
+                  </a>{' '}
+                  Perform a 20-minute all-out time trial. Your average power
+                  during this period is about 95% of your FTP.
+                </li>
+                <li>
+                  Ramp Test: Perform a test where you gradually increase your
+                  power output until you cannot continue. FTP is estimated from
+                  the power you sustained.
+                </li>
+                <li>
+                  Race-Based: Use data from a race where you sustained high
+                  effort for around an hour.
+                </li>
+              </ol>
+            </div>
+            <p>
+              Once you have established your FTP, you can use the calculator to
+              determine your Power Zones. These zones are calculated as
+              percentages of your FTP. While the exact percentages and number of
+              zones may vary depending on the system or training philosophy, a
+              common approach uses the following range:
+            </p>
+            <div class='formula-container'>
+              <p class='formula'>FTP = Average Power × 0.95</p>
+            </div>
+          </div>
+        </Slide>
+        <Slide
+          in={true}
+          direction='left'
+          // style={{ transformOrigin: '0 0 0' }}
+          {...(true ? { timeout: 500 } : {})}
+        >
+          <div className='section-right'>
+            <h2>7 Zones Model</h2>
+            <div className='zones' style={{ padding: '10px' }}>
+              {' '}
+              {/* Adjust padding as needed */}
+              <ul style={{ padding: '0', margin: '0', listStyleType: 'none' }}>
+                <li
+                  style={{
+                    padding: '5px 0',
+                    margin: '0',
+                    lineHeight: 'normal',
+                  }}
                 >
-                  20-Minute Test:
-                </a>{' '}
-                Perform a 20-minute all-out time trial. Your average power
-                during this period is about 95% of your FTP.
-              </li>
-              <li>
-                Ramp Test: Perform a test where you gradually increase your
-                power output until you cannot continue. FTP is estimated from
-                the power you sustained.
-              </li>
-              <li>
-                Race-Based: Use data from a race where you sustained high effort
-                for around an hour.
-              </li>
-            </ol>
-          </div>
-          <p>
-            Once you have established your FTP, you can use the calculator to
-            determine your Power Zones. These zones are calculated as
-            percentages of your FTP. While the exact percentages and number of
-            zones may vary depending on the system or training philosophy, a
-            common approach uses the following range:
-          </p>
-          <div class='formula-container'>
-            <p class='formula'>FTP = Average Power × 0.95</p>
-          </div>
-        </div>
-        <div className='section-right'>
-          <h2>7 Zones Model</h2>
-          <div className='zones' style={{ padding: '10px' }}>
-            {' '}
-            {/* Adjust padding as needed */}
-            <ul style={{ padding: '0', margin: '0', listStyleType: 'none' }}>
-              <li
-                style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}
-              >
-                <h1 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
-                  <b>Zone 1 </b> (Recovery): 0 - 55% of FTP
-                </h1>
-              </li>
-              <li
-                style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}
-              >
-                <h1 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
-                  <b>Zone 2</b> (Endurance): 56 - 75% of FTP
-                </h1>
-              </li>
-              <li
-                style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}
-              >
-                <h1 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
-                  <b>Zone 3</b> (Tempo): 76 - 90% of FTP
-                </h1>
-              </li>
-              <li
-                style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}
-              >
-                <h1 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
-                  <b>Zone 4</b> (Threshold): 91 - 105% of FTP
-                </h1>
-              </li>
-              <li
-                style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}
-              >
-                <h1 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
-                  <b>Zone 5</b> (VO2 Max): 106 - 120% of FTP
-                </h1>
-              </li>
-              <li
-                style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}
-              >
-                <h1 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
-                  <b>Zone 6</b> (Anaerobic): 121 - 150% of FTP
-                </h1>
-              </li>
-              <li
-                style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}
-              >
-                <h1 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
-                  <b>Zone 7</b> (Neuromuscular): 150%+ of FTP
-                </h1>
-              </li>
-            </ul>
-          </div>
+                  <h1
+                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
+                  >
+                    <b>Zone 1 </b> (Recovery): 0 - 55% of FTP
+                  </h1>
+                </li>
+                <li
+                  style={{
+                    padding: '5px 0',
+                    margin: '0',
+                    lineHeight: 'normal',
+                  }}
+                >
+                  <h1
+                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
+                  >
+                    <b>Zone 2</b> (Endurance): 56 - 75% of FTP
+                  </h1>
+                </li>
+                <li
+                  style={{
+                    padding: '5px 0',
+                    margin: '0',
+                    lineHeight: 'normal',
+                  }}
+                >
+                  <h1
+                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
+                  >
+                    <b>Zone 3</b> (Tempo): 76 - 90% of FTP
+                  </h1>
+                </li>
+                <li
+                  style={{
+                    padding: '5px 0',
+                    margin: '0',
+                    lineHeight: 'normal',
+                  }}
+                >
+                  <h1
+                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
+                  >
+                    <b>Zone 4</b> (Threshold): 91 - 105% of FTP
+                  </h1>
+                </li>
+                <li
+                  style={{
+                    padding: '5px 0',
+                    margin: '0',
+                    lineHeight: 'normal',
+                  }}
+                >
+                  <h1
+                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
+                  >
+                    <b>Zone 5</b> (VO2 Max): 106 - 120% of FTP
+                  </h1>
+                </li>
+                <li
+                  style={{
+                    padding: '5px 0',
+                    margin: '0',
+                    lineHeight: 'normal',
+                  }}
+                >
+                  <h1
+                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
+                  >
+                    <b>Zone 6</b> (Anaerobic): 121 - 150% of FTP
+                  </h1>
+                </li>
+                <li
+                  style={{
+                    padding: '5px 0',
+                    margin: '0',
+                    lineHeight: 'normal',
+                  }}
+                >
+                  <h1
+                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
+                  >
+                    <b>Zone 7</b> (Neuromuscular): 150%+ of FTP
+                  </h1>
+                </li>
+              </ul>
+            </div>
 
-          <div className='table-container'>
-            <PowerZoneCalculator />
+            <div className='table-container'>
+              <PowerZoneCalculator />
+            </div>
           </div>
-        </div>
+        </Slide>
       </div>
       <DividerText text='7 Zones Explained' />
       <div className='section-bottom'>

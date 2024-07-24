@@ -299,9 +299,9 @@ const PowerZoneCalculator = () => {
               </TableRow>
             ))}
           </TableBody>
-          <Button onClick={exportToPDF}>Export Table to PDF</Button>
         </Table>
       </TableContainer>
+      <Button onClick={exportToPDF}>Export Table to PDF</Button>
     </div>
   );
 };
