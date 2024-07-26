@@ -1,13 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Button } from '@mui/material';
 import { ThemeContext } from '../../App';
 
 const NavButton = ({ label, isActive, onClick, dropdown }) => {
   const { theme } = useContext(ThemeContext);
-
-  useEffect(() => {
-    console.log('Dropdown', dropdown);
-  });
 
   return (
     <Button

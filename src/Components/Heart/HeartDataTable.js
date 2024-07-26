@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -19,14 +19,14 @@ import '../../App.css';
 const HeartDataTable = ({ ranges }) => {
   const { theme } = useContext(ThemeContext);
 
-  useEffect(() => {
-    console.log('Heart Theme ', theme);
-  }, [theme]);
-
   const exportToPDF = () => {
     const pdf = new jsPDF();
     pdf.autoTable({ html: '.Heart-Data-Table' });
     pdf.save('heart-rate-zones.pdf');
+  };
+
+  const largeTextStyle = {
+    fontSize: '1.5rem', // Adjust size as needed
   };
 
   if (!ranges) {
@@ -51,6 +51,7 @@ const HeartDataTable = ({ ranges }) => {
     color: textColor,
     textAlign: 'center',
     whiteSpace: 'nowrap',
+    margin: '1em',
   };
 
   return (
@@ -124,20 +125,13 @@ const HeartDataTable = ({ ranges }) => {
                   {zone.feel}
                 </Typography>
               </TableCell>
-              <TableCell align='right'>
-                <Typography
-                  variant='body1'
-                  sx={{
-                    ...cellTypographyStyles,
-                    fontWeight: 'bold',
-                    fontSize: '1.2rem', // Adjust fontSize as needed
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {`${ranges[zone.id] ? ranges[zone.id][0] : ''} - ${
-                    ranges[zone.id] ? ranges[zone.id][1] : ''
-                  }`}
-                </Typography>
+              <TableCell
+                align='right'
+                sx={{ ...cellTypographyStyles, ...largeTextStyle }}
+              >
+                {`${ranges[zone.id] ? ranges[zone.id][0] : ''} - ${
+                  ranges[zone.id] ? ranges[zone.id][1] : ''
+                }`}
               </TableCell>
               <TableCell align='right' className='hide-on-mobile'>
                 <BasicModal target={zone.target} />

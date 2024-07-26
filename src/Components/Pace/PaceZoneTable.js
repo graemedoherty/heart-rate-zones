@@ -9,8 +9,11 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { OutlinedInput, InputAdornment, Button } from '@mui/material';
 import CalculateIcon from '@mui/icons-material/Calculate';
+
 import { ThemeContext } from '../../App';
 import { keyframes } from '@mui/system';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import '../../App.css';
 
 const borderColorChange = keyframes`
@@ -24,6 +27,12 @@ const borderColorChange = keyframes`
     border-color: yellow;
   }
 `;
+
+const exportToPDF = () => {
+  const pdf = new jsPDF();
+  pdf.autoTable({ html: '#pace-table' });
+  pdf.save('Pace-zones.pdf');
+};
 
 // Define the pace zones with intensity percentages and colors
 const paceZones = [
@@ -86,8 +95,6 @@ const PaceDataTable = () => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   const theme = useContext(ThemeContext);
-
-  useEffect(() => console.log('Table jjj ', theme));
 
   const createButtonStyles = (isAnimating) => ({
     color: theme.theme === 'dark' ? 'gray' : 'gray',
@@ -227,7 +234,7 @@ const PaceDataTable = () => {
         }}
         className='pace-table-container'
       >
-        <Table aria-label='Pace Zones Table'>
+        <Table aria-label='Pace Zones Table' id='pace-table'>
           <TableHead>
             <TableRow>
               <TableCell
@@ -332,6 +339,7 @@ const PaceDataTable = () => {
             ))}
           </TableBody>
         </Table>
+        <Button onClick={exportToPDF}>Export to PDF</Button>
       </TableContainer>
     </div>
   );

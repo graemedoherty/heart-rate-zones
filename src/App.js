@@ -22,6 +22,7 @@ function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const dropdownRef = useRef(null);
+  const scrollContainerRef = useRef(null); // Reference for the scrollable container
 
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 1250);
@@ -113,12 +114,29 @@ function App() {
       }
     };
 
+    const handleScroll = () => {
+      setIsDropdownOpen(false);
+    };
+
+    const scrollContainer = scrollContainerRef.current;
+
     if (isDropdownOpen) {
       document.addEventListener('mousedown', handleClickOutside);
+      if (scrollContainer) {
+        scrollContainer.addEventListener('scroll', handleScroll);
+      }
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('scroll', handleScroll);
+      }
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('scroll', handleScroll);
+      }
     };
   }, [isDropdownOpen]);
 
@@ -128,7 +146,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className='Main' id={theme}>
+      <div className='Main' id={theme} ref={scrollContainerRef}>
         <Grow
           in={true}
           style={{ transformOrigin: '0 0 0' }}

@@ -13,6 +13,7 @@ import '../../App.css';
 
 const PaceZoneData = () => {
   const theme = useContext(ThemeContext);
+
   return (
     <>
       <div className='content-main'>
@@ -250,13 +251,24 @@ const PaceZoneData = () => {
       <DividerText text='5 Zones Explained' />
       <div className='section-bottom'>
         <div className='section-left'>
-          <Accordion>
+          <Accordion
+            sx={{
+              background: theme.theme === 'dark' ? 'black' : 'white',
+              color: theme.theme === 'dark' ? 'white' : 'black',
+            }}
+          >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={
+                <ExpandMoreIcon
+                  sx={{
+                    color: theme.theme === 'dark' ? 'white' : 'black',
+                  }}
+                />
+              }
               aria-controls='panel1a-content'
               id='panel1a-header'
             >
-              <Typography> Zones Explained</Typography>
+              <Typography>Pace Zones Explained</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
