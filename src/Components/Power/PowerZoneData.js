@@ -2,6 +2,7 @@ import React from 'react';
 import PowerZoneCalculator from './PowerZoneCalculator';
 import DividerText from '../Divider/Divider';
 import { Slide } from '@mui/material';
+
 import './Power.css';
 import '../../App.css';
 
@@ -21,13 +22,15 @@ const PowerZoneData = () => {
             <div>
               <h2>What is Power Zone training?</h2>
               <p>
-                Power zone training in running is a structured approach to
-                training that categorizes different intensities of effort into
-                specific zones based on physiological thresholds such as heart
-                rate, pace, or perceived exertion. The concept is similar to
-                other training methodologies like heart rate zone training or
-                pace-based training, but it specifically focuses on power
-                output.
+                Power zone training in running and cycling is a structured
+                approach to training that categorizes different intensities of
+                effort into specific zones based on physiological thresholds
+                such as heart rate, pace, or perceived exertion. The concept is
+                similar to other training methodologies like heart rate zone
+                training or pace-based training, but it specifically focuses on
+                power output. The 7 zones model, which will be discussed in
+                detail at the end of this section, helps in targeting various
+                aspects of fitness, from aerobic capacity to peak power.
               </p>
               <h2>Benefits of Power Zone Training</h2>
               <ol>
@@ -86,8 +89,8 @@ const PowerZoneData = () => {
               zones may vary depending on the system or training philosophy, a
               common approach uses the following range:
             </p>
-            <div class='formula-container'>
-              <p class='formula'>FTP = Average Power × 0.95</p>
+            <div className='formula-container'>
+              <p className='formula'>FTP = Average Power × 0.95</p>
             </div>
           </div>
         </Slide>
@@ -98,104 +101,23 @@ const PowerZoneData = () => {
           {...(true ? { timeout: 500 } : {})}
         >
           <div className='section-right'>
-            <h2>7 Zones Model</h2>
-            <div className='zones' style={{ padding: '10px' }}>
-              {' '}
-              {/* Adjust padding as needed */}
-              <ul style={{ padding: '0', margin: '0', listStyleType: 'none' }}>
-                <li
-                  style={{
-                    padding: '5px 0',
-                    margin: '0',
-                    lineHeight: 'normal',
-                  }}
-                >
-                  <h1
-                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
-                  >
-                    <b>Zone 1 </b> (Recovery): 0 - 55% of FTP
-                  </h1>
-                </li>
-                <li
-                  style={{
-                    padding: '5px 0',
-                    margin: '0',
-                    lineHeight: 'normal',
-                  }}
-                >
-                  <h1
-                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
-                  >
-                    <b>Zone 2</b> (Endurance): 56 - 75% of FTP
-                  </h1>
-                </li>
-                <li
-                  style={{
-                    padding: '5px 0',
-                    margin: '0',
-                    lineHeight: 'normal',
-                  }}
-                >
-                  <h1
-                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
-                  >
-                    <b>Zone 3</b> (Tempo): 76 - 90% of FTP
-                  </h1>
-                </li>
-                <li
-                  style={{
-                    padding: '5px 0',
-                    margin: '0',
-                    lineHeight: 'normal',
-                  }}
-                >
-                  <h1
-                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
-                  >
-                    <b>Zone 4</b> (Threshold): 91 - 105% of FTP
-                  </h1>
-                </li>
-                <li
-                  style={{
-                    padding: '5px 0',
-                    margin: '0',
-                    lineHeight: 'normal',
-                  }}
-                >
-                  <h1
-                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
-                  >
-                    <b>Zone 5</b> (VO2 Max): 106 - 120% of FTP
-                  </h1>
-                </li>
-                <li
-                  style={{
-                    padding: '5px 0',
-                    margin: '0',
-                    lineHeight: 'normal',
-                  }}
-                >
-                  <h1
-                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
-                  >
-                    <b>Zone 6</b> (Anaerobic): 121 - 150% of FTP
-                  </h1>
-                </li>
-                <li
-                  style={{
-                    padding: '5px 0',
-                    margin: '0',
-                    lineHeight: 'normal',
-                  }}
-                >
-                  <h1
-                    style={{ padding: '0', margin: '0', lineHeight: 'normal' }}
-                  >
-                    <b>Zone 7</b> (Neuromuscular): 150%+ of FTP
-                  </h1>
-                </li>
-              </ul>
-            </div>
+            <h2>Practical Application of Power Zones</h2>
+            <p>
+              Base Training: Focus on Zones 2 and 3 to build aerobic capacity
+              and endurance during the early phases of training.
+            </p>
+            <p>
+              Build Phase: Incorporate more Zone 4 (Threshold) and Zone 5 (VO2
+              Max) intervals to improve lactate threshold and aerobic power.
+            </p>
+            <p>
+              Peak Phase: Emphasize high-intensity intervals in Zones 5, 6, and
+              7 to maximize fitness and performance before key events.
+            </p>
+            <p>
+              Recovery: Use Zone 1 for active recovery sessions to facilitate
+              recovery and adaptation between harder workouts.
+            </p>
 
             <div className='table-container'>
               <PowerZoneCalculator />

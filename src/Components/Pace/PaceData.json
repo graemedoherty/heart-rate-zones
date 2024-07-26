@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "zone": "Zone 1 (Recovery)",
+    "feel": "Very easy",
+    "intensity": [0, 78]
+  },
+  {
+    "id": 2,
+    "zone": "Zone 2 (Endurance)",
+    "feel": "Comfortable",
+    "intensity": [79, 88]
+  },
+  {
+    "id": 3,
+    "zone": "Zone 3 (Tempo)",
+    "feel": "Moderate",
+    "intensity": [89, 94]
+  },
+  {
+    "id": 4,
+    "zone": "Zone 4 (Threshold)",
+    "feel": "Hard",
+    "intensity": [95, 101]
+  },
+  {
+    "id": 5,
+    "zone": "Zone 5a",
+    "feel": "Very hard",
+    "intensity": [102, 103]
+  },
+  {
+    "id": 6,
+    "zone": "Zone 5b",
+    "feel": "Extremely hard",
+    "intensity": [104, 111]
+  },
+  {
+    "id": 7,
+    "zone": "Zone 5c",
+    "feel": "Max effort",
+    "intensity": [112, 120]
+  }
+]

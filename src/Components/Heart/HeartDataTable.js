@@ -14,6 +14,7 @@ import { Button } from '@mui/material';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import './HeartRateZone.css';
+import '../../App.css';
 
 const HeartDataTable = ({ ranges }) => {
   const { theme } = useContext(ThemeContext);
@@ -62,24 +63,39 @@ const HeartDataTable = ({ ranges }) => {
       <Table className='Heart-Data-Table' aria-label='simple table'>
         <TableHead>
           <TableRow id='Table-Header'>
-            {['Zones', 'Feel', 'Range (BPM)', 'Intensity', 'Target Zones'].map(
-              (header, index) => (
-                <TableCell
-                  key={index}
-                  align={header === 'Zones' ? 'left' : 'right'}
-                  className={
-                    header === 'Feel' || header === 'Target Zones'
-                      ? 'hide-on-mobile'
-                      : ''
-                  }
-                  sx={headerCellStyles}
-                >
-                  <Typography variant='body2' sx={{ textAlign: 'center' }}>
-                    {header}
-                  </Typography>
-                </TableCell>
-              )
-            )}
+            <TableCell align='left' sx={headerCellStyles}>
+              <Typography variant='body2' sx={{ textAlign: 'center' }}>
+                Zones
+              </Typography>
+            </TableCell>
+            <TableCell align='right' sx={headerCellStyles}>
+              <Typography variant='body2' sx={{ textAlign: 'center' }}>
+                Intensity
+              </Typography>
+            </TableCell>
+            <TableCell
+              align='right'
+              className='hide-on-mobile'
+              sx={headerCellStyles}
+            >
+              <Typography variant='body2' sx={{ textAlign: 'center' }}>
+                Feel
+              </Typography>
+            </TableCell>
+            <TableCell align='right' sx={headerCellStyles}>
+              <Typography variant='body2' sx={{ textAlign: 'center' }}>
+                Range (BPM)
+              </Typography>
+            </TableCell>
+            <TableCell
+              align='right'
+              className='hide-on-mobile'
+              sx={headerCellStyles}
+            >
+              <Typography variant='body2' sx={{ textAlign: 'center' }}>
+                Target Zones
+              </Typography>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -96,6 +112,11 @@ const HeartDataTable = ({ ranges }) => {
               >
                 <Typography variant='body1' sx={{ color: 'black' }}>
                   {zone.zone}
+                </Typography>
+              </TableCell>
+              <TableCell align='right'>
+                <Typography variant='body2' sx={cellTypographyStyles}>
+                  {zone.intensity}
                 </Typography>
               </TableCell>
               <TableCell align='right' className='hide-on-mobile'>
@@ -116,11 +137,6 @@ const HeartDataTable = ({ ranges }) => {
                   {`${ranges[zone.id] ? ranges[zone.id][0] : ''} - ${
                     ranges[zone.id] ? ranges[zone.id][1] : ''
                   }`}
-                </Typography>
-              </TableCell>
-              <TableCell align='right'>
-                <Typography variant='body2' sx={cellTypographyStyles}>
-                  {zone.intensity}
                 </Typography>
               </TableCell>
               <TableCell align='right' className='hide-on-mobile'>

@@ -85,11 +85,11 @@ h4 {
     border-collapse: collapse;
   }
 
-  .power-zone-container .MuiTableCell-root:nth-child(5) {
+  .power-zone-container .MuiTableCell-root:nth-child(4) {
     display: none;
   }
 
-  .power-zone-container .MuiTableHead-root .MuiTableCell-root:nth-child(5) {
+  .power-zone-container .MuiTableHead-root .MuiTableCell-root:nth-child(4) {
     display: none;
   }
 }

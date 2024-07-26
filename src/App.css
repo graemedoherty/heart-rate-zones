@@ -30,7 +30,7 @@ html,
   display: flex;
   flex-direction: column;
   font-family: 'Libre Franklin', sans-serif;
-  line-height: 2; /* 1.5 times the font size */
+  line-height: 1.5; /* 1.5 times the font size */
   overflow: auto; /* Ensure the root element is scrollable */
 }
 .power-input-row {
@@ -77,11 +77,12 @@ html,
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding-top: 3em;
 }
 
 .power-section {
   height: 100vh; /* Ensure section is tall enough to observe */
-  margin-top: 50px; /* Adjust as needed */
+  margin-top: 40px; /* Adjust as needed */
 }
 
 #dark {
@@ -90,7 +91,8 @@ html,
 }
 
 #dark h1,
-#dark h2 {
+#dark h2,
+#dark h6 {
   color: var(--primary-color);
 }
 
@@ -101,14 +103,21 @@ html,
 }
 
 .Sidebar {
+  height: auto;
   width: 15%;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   color: rgb(18, 16, 16);
   box-shadow: 0 0 1px 1px var(--primary-color);
+}
+
+.Sidebar-Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between !important;
+  height: 100vh; /* Adjust height as needed */
 }
 
 #light .Sidebar {
@@ -173,6 +182,16 @@ html,
   padding-right: 3em;
 }
 
+.pace-table-header {
+  display: flex;
+  height: 2em;
+  justify-content: space-between;
+}
+
+.pace-table-header-buttons {
+  display: flex;
+}
+
 .section-right ul {
   list-style-type: none; /* Remove default list bullets */
   padding: 0; /* Remove default padding */
@@ -231,11 +250,35 @@ MuiTableContainer-root {
 }
 
 @media all and (max-width: 1250px) {
+  .Content {
+    margin-top: 3em;
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .sidebar-heading {
+    padding: 0;
+    padding-left: 16px; /* Adjust the value as needed */
+  }
+  #menu-icon {
+    padding-right: 16px;
+  }
   .content-main {
     flex-direction: column;
     justify-content: space-between;
     overflow-y: auto;
     text-align: left !important;
+  }
+
+  .pace-table-header {
+    display: flex;
+    height: 2em;
+    justify-content: space-evenly;
+  }
+  .pace-table-container {
+    padding: 0;
   }
   .stress-tests {
     flex-direction: column;
@@ -277,7 +320,7 @@ MuiTableContainer-root {
   .Sidebar {
     width: 100%;
     margin: 0;
-    padding: 10px;
+    padding: 0px;
     box-sizing: border-box;
     flex-direction: row;
     align-items: center;
@@ -325,7 +368,7 @@ MuiTableContainer-root {
     margin: 2em;
   }
   table {
-    border: 0;
+    border: 0 !important;
     width: 100% !important;
     text-align: center;
     border-spacing: 0 0.3em !important;
@@ -340,7 +383,9 @@ MuiTableContainer-root {
 
   th,
   td {
-    padding: 1em !important; /* Remove padding from table header and data cells */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /* padding: 0em !important;  */
     margin: 0 !important; /* Remove margin if needed */
     font-size: 0.1em;
     text-align: center !important;
@@ -353,11 +398,15 @@ MuiTableContainer-root {
     padding: 2em;
   }
 }
-@media all and (max-width: 400px) {
+@media all and (max-width: 480px) {
   .section-right,
   .section-left p {
     text-align: justify;
     text-justify: inter-word;
+  }
+  .sidebar-heading {
+    padding: 0;
+    padding-left: 16px; /* Adjust the value as needed */
   }
   h1 {
     font-size: 1rem !important; /* Adjust as needed */

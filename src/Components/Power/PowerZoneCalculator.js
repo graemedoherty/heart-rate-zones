@@ -130,15 +130,22 @@ const PowerZoneCalculator = () => {
       <div className='power-input-row'>
         <h5>Enter your estimated FTP </h5>
         <div className='power-zone-container'>
-          <Typography component='span' variant='h1' sx={{ fontSize: '4em' }}>
-            {`${value}`}
-          </Typography>
+          <div id='power-input-value-row'>
+            {' '}
+            <Typography component='span' variant='h1' sx={{ fontSize: '4em' }}>
+              {`${value} `}
+            </Typography>
+            <Typography component='span' variant='h6' sx={{ fontSize: '1em' }}>
+              FTP
+            </Typography>
+          </div>
+
           <PrettoSlider
             id='PowerZoneSlider'
             aria-label='pretto slider'
             value={typeof value === 'number' ? value : 0}
             min={120}
-            max={220}
+            max={440}
             onChange={handleSliderChange}
             theme={theme.theme}
           />
@@ -177,14 +184,7 @@ const PowerZoneCalculator = () => {
                   Zones
                 </Typography>
               </TableCell>
-              <TableCell align='center' sx={{ flex: 1 }}>
-                <Typography
-                  variant='body2'
-                  sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
-                >
-                  Watts
-                </Typography>
-              </TableCell>
+
               <TableCell align='center' sx={{ flex: 1 }}>
                 <Typography
                   variant='body2'
@@ -205,6 +205,7 @@ const PowerZoneCalculator = () => {
                   FTP
                 </Typography>
               </TableCell>
+
               <TableCell
                 align='center'
                 className='hide-on-small'
@@ -215,6 +216,14 @@ const PowerZoneCalculator = () => {
                   sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
                 >
                   Feel
+                </Typography>
+              </TableCell>
+              <TableCell align='center' sx={{ flex: 1 }}>
+                <Typography
+                  variant='body2'
+                  sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
+                >
+                  Watts
                 </Typography>
               </TableCell>
             </TableRow>
@@ -240,27 +249,7 @@ const PowerZoneCalculator = () => {
                 >
                   <Typography variant='body2'>{zone.zone}</Typography>
                 </TableCell>
-                <TableCell
-                  align='center'
-                  sx={{
-                    color:
-                      theme.theme === 'light' ? 'black' : lightColors[index],
-                    flex: 1,
-                  }}
-                >
-                  <Typography
-                    variant='body2'
-                    sx={{
-                      fontWeight: 'bold',
-                      fontSize: '1.5rem', // Adjust fontSize as needed
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {`${zone.range[0]} - ${
-                      zone.range[1] === Infinity ? 'Infinity' : zone.range[1]
-                    }`}
-                  </Typography>
-                </TableCell>
+
                 <TableCell
                   align='center'
                   sx={{
@@ -295,6 +284,26 @@ const PowerZoneCalculator = () => {
                   }}
                 >
                   <Typography variant='body2'>{zone.feel}</Typography>
+                </TableCell>
+                <TableCell
+                  align='center'
+                  sx={{
+                    color: theme.theme === 'light' ? 'black' : 'white',
+                    flex: 1,
+                  }}
+                >
+                  <Typography
+                    variant='body2'
+                    sx={{
+                      fontWeight: 'bold',
+                      fontSize: '1.5rem', // Adjust fontSize as needed
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {`${zone.range[0]} - ${
+                      zone.range[1] === Infinity ? 'Infinity' : zone.range[1]
+                    }`}
+                  </Typography>
                 </TableCell>
               </TableRow>
             ))}

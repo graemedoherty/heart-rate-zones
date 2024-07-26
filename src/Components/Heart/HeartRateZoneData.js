@@ -18,11 +18,6 @@ const HeartRateZoneData = () => {
 
   return (
     <>
-      <div className='section-header'>
-        <h1>
-          <b>Heart Rate Training</b>
-        </h1>
-      </div>
       <div className='content-main'>
         <div className='section-left'>
           <div>
@@ -50,7 +45,6 @@ const HeartRateZoneData = () => {
               metric that supports both your physical and mental progress,
               ensuring a more balanced and effective approach to running.
             </p>
-
             <ol>
               <li>
                 Improved Training Efficiency: Training within specific heart
@@ -66,7 +60,6 @@ const HeartRateZoneData = () => {
                 fitness levels, allowing for tailored training plans.
               </li>
             </ol>
-
             <h2>Resting Heart Rate </h2>
             <p>
               Resting heart rate is the number of times your heart beats per
@@ -90,38 +83,38 @@ const HeartRateZoneData = () => {
               faster recovery time indicates improved fitness. If your HRM
               tracks this metric, monitor it over time to see if your recovery
               rate improves, which is a positive sign of increased fitness.
-              <ol>
-                <li>
-                  Immediately After Exercise: Record your heart rate right at
-                  the end of your exercise session.
-                </li>
-                <li>
-                  One Minute Later: Record your heart rate one minute after
-                  you’ve stopped exercising.
-                </li>
-                <li>
-                  Calculate the Recovery Heart Rate: Subtract the heart rate one
-                  minute after exercise from the heart rate immediately after
-                  exercise.
-                </li>
-              </ol>
-              <div class='formula-container'>
-                <p class='formula'>
-                  RHR = Heart Rate immediate − Heart Rate 1 min ​
-                </p>
-              </div>
-              example:
-              <ul>
-                <li>
-                  If your heart rate immediately after exercise is 160 bpm and
-                  your heart rate one minute later is 130 bpm, your recovery
-                  heart rate would be:
-                </li>
-              </ul>
-              <div class='formula-container'>
-                <p class='formula'>RHR = 160bpm − 130bpm = 30bpm</p>
-              </div>
             </p>
+            <div className='formula-container'>
+              <p className='formula'>
+                RHR = Heart Rate immediate − Heart Rate 1 min ​
+              </p>
+            </div>
+            example:
+            <ul>
+              <li>
+                If your heart rate immediately after exercise is 160 bpm and
+                your heart rate one minute later is 130 bpm, your recovery heart
+                rate would be:
+              </li>
+            </ul>
+            <div className='formula-container'>
+              <p className='formula'>RHR = 160bpm − 130bpm = 30bpm</p>
+            </div>
+            <ol>
+              <li>
+                Immediately After Exercise: Record your heart rate right at the
+                end of your exercise session.
+              </li>
+              <li>
+                One Minute Later: Record your heart rate one minute after you’ve
+                stopped exercising.
+              </li>
+              <li>
+                Calculate the Recovery Heart Rate: Subtract the heart rate one
+                minute after exercise from the heart rate immediately after
+                exercise.
+              </li>
+            </ol>
             <h2>What does max heart rate MEAN? (MHR)</h2>
             <p>
               Your maximum heart rate (MHR) represents the highest number of
@@ -144,23 +137,22 @@ const HeartRateZoneData = () => {
             a maximum heart rate of 180 beats per minute. However, this method
             has its limitations. It tends to be less accurate for both younger
             and older individuals and does not account for personal factors such
-            as genetics.
-            <div class='formula-container'>
-              <p class='formula'>MHR = 220 - age</p>
-            </div>
-            If you’re looking for the most accurate way to calculate your max
-            heart rate, you should have your HR max clinically measured. This is
-            something you’ll need to do in a fancy laboratory environment with
-            high-tech equipment. Certainly! Here’s a reworded version: --- In
-            addition to using estimations and tests, you can determine your
-            maximum heart rate with a practical field test. Simply lace up your
-            running shoes, activate your heart rate monitor, and head outside
-            for a real-world assessment. No need for specialized laboratory
-            equipment—this straightforward field test will give you an accurate
-            and personalized estimate of your maximum heart rate. The process is
+            as genetics. If you’re looking for the most accurate way to
+            calculate your max heart rate, you should have your HR max
+            clinically measured. This is something you’ll need to do in a fancy
+            laboratory environment with high-tech equipment. In addition to
+            using estimations and tests, you can determine your maximum heart
+            rate with a practical field test. Simply lace up your running shoes,
+            activate your heart rate monitor, and head outside for a real-world
+            assessment. No need for specialized laboratory equipment—this
+            straightforward field test will give you an accurate and
+            personalized estimate of your maximum heart rate. The process is
             easy: start with a proper warm-up, then engage in an exercise that
             pushes you close to your maximum effort.
           </p>
+          <div className='formula-container'>
+            <p className='formula'>MHR = 220 - age</p>
+          </div>
           <div className='stress-tests'>
             <div className='stress-item'>
               <h3>Stress Test 1</h3>
@@ -194,7 +186,12 @@ const HeartRateZoneData = () => {
           </div>
 
           <p>The formula for each zone is:</p>
-          <p class='formula'>Target Heart Rate = (HRR × Percentage) + RHR</p>
+          <div className='formula-container'>
+            {' '}
+            <p className='formula'>
+              Target Heart Rate = (HRR × Percentage) + RHR
+            </p>
+          </div>
 
           <div className='table-container'>
             <HeartRateZone
@@ -299,6 +296,7 @@ const HeartRateZoneData = () => {
           </p>
         </div>
       </div>
+      <DividerText text='Pace' />
     </>
   );
 };

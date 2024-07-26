@@ -8,6 +8,7 @@
   --bg-color: #fff;
   --heading-color: #292922;
 }
+
 .HeartRateZone {
   display: flex;
   flex-direction: column;
@@ -43,17 +44,24 @@
   width: 100%;
 }
 
-/* Hide last column for small screens */
-@media (max-width: 400px) {
+#logo h1,
+#logo h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide specified columns for screens less than 1200px */
+@media (max-width: 1200px) {
   .Heart-Data-Table .hide-on-mobile {
     display: none;
   }
-  /* Remove padding for TableCell */
-  .Heart-Data-Table .MuiTableCell-root {
-    padding: 0 !important;
-  }
+}
 
-  .Heart-Data-Table .MuiTableHead-root .MuiTableCell-root {
-    padding: 0 !important;
-  }
+/* Additional styles to remove padding for TableCell */
+.Heart-Data-Table .MuiTableCell-root {
+  padding: 0 !important; /* Remove padding */
+}
+
+.Heart-Data-Table .MuiTableHead-root .MuiTableCell-root {
+  padding: 0 !important; /* Remove padding */
 }
