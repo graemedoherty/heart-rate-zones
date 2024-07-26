@@ -1,13 +1,19 @@
 {
   "files": {
-    "main.css": "/github.io/heart-rate-zones/static/css/main.39f8e59a.css",
-    "main.js": "/github.io/heart-rate-zones/static/js/main.52061096.js",
+    "main.css": "/github.io/heart-rate-zones/static/css/main.7e376fa5.css",
+    "main.js": "/github.io/heart-rate-zones/static/js/main.fea182b4.js",
+    "static/js/361.ba9aaa42.chunk.js": "/github.io/heart-rate-zones/static/js/361.ba9aaa42.chunk.js",
+    "static/js/359.f544078f.chunk.js": "/github.io/heart-rate-zones/static/js/359.f544078f.chunk.js",
+    "static/js/172.4652c753.chunk.js": "/github.io/heart-rate-zones/static/js/172.4652c753.chunk.js",
     "index.html": "/github.io/heart-rate-zones/index.html",
-    "main.39f8e59a.css.map": "/github.io/heart-rate-zones/static/css/main.39f8e59a.css.map",
-    "main.52061096.js.map": "/github.io/heart-rate-zones/static/js/main.52061096.js.map"
+    "main.7e376fa5.css.map": "/github.io/heart-rate-zones/static/css/main.7e376fa5.css.map",
+    "main.fea182b4.js.map": "/github.io/heart-rate-zones/static/js/main.fea182b4.js.map",
+    "361.ba9aaa42.chunk.js.map": "/github.io/heart-rate-zones/static/js/361.ba9aaa42.chunk.js.map",
+    "359.f544078f.chunk.js.map": "/github.io/heart-rate-zones/static/js/359.f544078f.chunk.js.map",
+    "172.4652c753.chunk.js.map": "/github.io/heart-rate-zones/static/js/172.4652c753.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.39f8e59a.css",
-    "static/js/main.52061096.js"
+    "static/css/main.7e376fa5.css",
+    "static/js/main.fea182b4.js"
   ]
 }
