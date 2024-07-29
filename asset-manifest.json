@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/heart-rate-zones/static/css/main.f05f9a97.css",
-    "main.js": "/heart-rate-zones/static/js/main.6909bd84.js",
+    "main.css": "/heart-rate-zones/static/css/main.95b94f72.css",
+    "main.js": "/heart-rate-zones/static/js/main.2dc3f6b3.js",
     "static/js/361.ba9aaa42.chunk.js": "/heart-rate-zones/static/js/361.ba9aaa42.chunk.js",
     "static/js/359.f544078f.chunk.js": "/heart-rate-zones/static/js/359.f544078f.chunk.js",
-    "static/js/172.4652c753.chunk.js": "/heart-rate-zones/static/js/172.4652c753.chunk.js",
+    "static/js/172.4fbff985.chunk.js": "/heart-rate-zones/static/js/172.4fbff985.chunk.js",
     "index.html": "/heart-rate-zones/index.html",
-    "main.f05f9a97.css.map": "/heart-rate-zones/static/css/main.f05f9a97.css.map",
-    "main.6909bd84.js.map": "/heart-rate-zones/static/js/main.6909bd84.js.map",
+    "main.95b94f72.css.map": "/heart-rate-zones/static/css/main.95b94f72.css.map",
+    "main.2dc3f6b3.js.map": "/heart-rate-zones/static/js/main.2dc3f6b3.js.map",
     "361.ba9aaa42.chunk.js.map": "/heart-rate-zones/static/js/361.ba9aaa42.chunk.js.map",
     "359.f544078f.chunk.js.map": "/heart-rate-zones/static/js/359.f544078f.chunk.js.map",
-    "172.4652c753.chunk.js.map": "/heart-rate-zones/static/js/172.4652c753.chunk.js.map"
+    "172.4fbff985.chunk.js.map": "/heart-rate-zones/static/js/172.4fbff985.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f05f9a97.css",
-    "static/js/main.6909bd84.js"
+    "static/css/main.95b94f72.css",
+    "static/js/main.2dc3f6b3.js"
   ]
 }
