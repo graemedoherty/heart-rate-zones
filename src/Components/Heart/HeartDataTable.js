@@ -36,12 +36,12 @@ const HeartDataTable = ({ ranges }) => {
   // Common styles
   const textColor = theme === 'dark' ? '#48abe0' : 'black';
   const headerCellStyles = {
-    color: theme === 'dark' ? 'white' : 'black',
-    backgroundColor: theme === 'dark' ? 'black' : 'white',
+    color: theme === 'dark' ? 'white' : '#333',
+    backgroundColor: theme === 'dark' ? '#333' : 'white',
   };
 
   const getRowStyles = (zoneColor) => ({
-    backgroundColor: theme === 'dark' ? 'black' : zoneColor,
+    backgroundColor: theme === 'dark' ? '#333' : zoneColor,
     color: textColor,
     marginBottom: '10px', // Add space between rows
     '&:last-child td, &:last-child th': { border: 0 },
@@ -58,7 +58,7 @@ const HeartDataTable = ({ ranges }) => {
     <TableContainer
       component={Paper}
       style={{
-        backgroundColor: theme === 'light' ? 'white' : 'black',
+        backgroundColor: theme === 'light' ? 'white' : '#333',
       }}
     >
       <Table className='Heart-Data-Table' aria-label='simple table'>
@@ -134,7 +134,9 @@ const HeartDataTable = ({ ranges }) => {
                 }`}
               </TableCell>
               <TableCell align='right' className='hide-on-mobile'>
-                <BasicModal target={zone.target} />
+                <Typography variant='body2' sx={cellTypographyStyles}>
+                  {zone.target}
+                </Typography>
               </TableCell>
             </TableRow>
           ))}

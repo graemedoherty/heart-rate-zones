@@ -177,8 +177,7 @@ const PaceZoneData = () => {
             and number of zones may vary depending on the system or training
             philosophy, a common approach uses the following range:
           </p>
-          Zone 1 Slower than 129% of FTP (78%) Zone 2 114% to 129% of FTP
-          (78-88%) Zone 3 Zone 4 Zone 5a Zone 5b Zone 5c
+
           <h2>5 Zones Model</h2>
           <div className='zones' style={{ padding: '10px' }}>
             {' '}
@@ -253,7 +252,7 @@ const PaceZoneData = () => {
         <div className='section-left'>
           <Accordion
             sx={{
-              background: theme.theme === 'dark' ? 'black' : 'white',
+              background: theme.theme === 'dark' ? '#333' : 'white',
               color: theme.theme === 'dark' ? 'white' : 'black',
             }}
           >

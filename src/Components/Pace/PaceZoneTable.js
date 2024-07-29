@@ -159,10 +159,10 @@ const PaceDataTable = () => {
 
   // Determine the table styling based on theme
   const isDarkMode = theme.theme === 'dark';
-  const rowBgColor = isDarkMode ? '#000000' : '#FFFFFF';
+  const rowBgColor = isDarkMode ? '#333' : '#FFFFFF';
 
   const inputStyles = {
-    backgroundColor: isDarkMode ? '#333333' : '#FFFFFF',
+    backgroundColor: isDarkMode ? '#333' : '#FFFFFF',
     color: isDarkMode ? '#FFFFFF' : '#000000',
     borderColor: isDarkMode ? '#FFFFFF' : '#000000',
   };
@@ -238,20 +238,20 @@ const PaceDataTable = () => {
           <TableHead>
             <TableRow>
               <TableCell
-                style={{ backgroundColor: isDarkMode ? 'black' : 'white' }}
+                style={{ backgroundColor: isDarkMode ? '#333' : 'white' }}
               >
                 <Typography
                   variant='h6'
                   style={{
                     color: isDarkMode ? 'white' : 'black',
-                    backgroundColor: isDarkMode ? 'black' : 'white',
+                    backgroundColor: isDarkMode ? '#333' : 'white',
                   }}
                 >
                   Zone
                 </Typography>
               </TableCell>
               <TableCell
-                style={{ backgroundColor: isDarkMode ? 'black' : 'white' }}
+                style={{ backgroundColor: isDarkMode ? '#333' : 'white' }}
               >
                 <Typography
                   variant='h6'
@@ -262,7 +262,7 @@ const PaceDataTable = () => {
               </TableCell>
               {windowWidth > 1200 && (
                 <TableCell
-                  style={{ backgroundColor: isDarkMode ? 'black' : 'white' }}
+                  style={{ backgroundColor: isDarkMode ? '#333' : 'white' }}
                 >
                   <Typography
                     variant='h6'
@@ -273,7 +273,7 @@ const PaceDataTable = () => {
                 </TableCell>
               )}
               <TableCell
-                style={{ backgroundColor: isDarkMode ? 'black' : 'white' }}
+                style={{ backgroundColor: isDarkMode ? '#333' : 'white' }}
               >
                 <Typography
                   variant='h6'
@@ -283,7 +283,7 @@ const PaceDataTable = () => {
                 </Typography>
               </TableCell>
               <TableCell
-                style={{ backgroundColor: isDarkMode ? 'black' : 'white' }}
+                style={{ backgroundColor: isDarkMode ? '#333' : 'white' }}
               >
                 <Typography
                   variant='h6'
@@ -299,7 +299,7 @@ const PaceDataTable = () => {
               <TableRow
                 key={zone.id}
                 style={{
-                  backgroundColor: isDarkMode ? 'black' : zone.color,
+                  backgroundColor: isDarkMode ? '#333' : zone.color,
                   color: isDarkMode ? 'white' : 'black',
                 }}
               >

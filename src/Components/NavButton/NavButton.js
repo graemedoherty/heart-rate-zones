@@ -25,7 +25,7 @@ const NavButton = ({ label, isActive, onClick, dropdown }) => {
           ? '#48abe0'
           : theme === 'light'
           ? 'white'
-          : 'black',
+          : '#333',
         '&:hover': {
           backgroundColor: isActive
             ? '#48abe0'

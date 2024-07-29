@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import HeartRateZone from './HeartRateZone';
 import CalculateHeartRateZones from '../../CalculateHeartRateZones';
 import DividerText from '../Divider/Divider';
+import { HeartRateData } from '../../ZoneInformation';
 import '../../App.css';
 
 const HeartRateZoneData = () => {
@@ -169,7 +170,6 @@ const HeartRateZoneData = () => {
               </p>
             </div>
             <div className='stress-item'>
-              {' '}
               <h3>Stress Test 2</h3>
               <p>
                 If you don't have access to a hill, you can perform this test on
@@ -187,12 +187,12 @@ const HeartRateZoneData = () => {
 
           <p>The formula for each zone is:</p>
           <div className='formula-container'>
-            {' '}
             <p className='formula'>
               Target Heart Rate = (HRR × Percentage) + RHR
             </p>
           </div>
 
+          <HeartRateData />
           <div className='table-container'>
             <HeartRateZone
               value={value}

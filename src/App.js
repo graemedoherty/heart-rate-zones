@@ -155,7 +155,9 @@ function App() {
           <div className='Sidebar'>
             {isMobile ? (
               <>
-                <h1 className='sidebar-heading'>Training Zones</h1>
+                <h2 className='sidebar-heading'>
+                  <b>Training Zones</b>
+                </h2>
                 <MenuIcon
                   id={'menu-icon'}
                   sx={{ fontSize: 30 }}
@@ -205,7 +207,9 @@ function App() {
               <div
                 className='Dropdown-Menu'
                 ref={dropdownRef}
-                style={{ background: theme === 'dark' ? 'black' : 'white' }}
+                style={{
+                  background: theme === 'dark' ? 'rgb(34, 31, 31)' : 'white',
+                }}
               >
                 <ThemeSwitch />
                 <NavButton

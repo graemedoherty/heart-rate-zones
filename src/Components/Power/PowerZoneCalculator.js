@@ -155,31 +155,31 @@ const PowerZoneCalculator = () => {
       <TableContainer
         component={Paper}
         style={{
-          backgroundColor: theme.theme === 'light' ? 'white' : 'black',
+          backgroundColor: theme.theme === 'light' ? 'white' : '#333',
         }}
       >
         <Table
           id='power-table'
           aria-label='simple table'
           style={{
-            backgroundColor: theme.theme === 'light' ? 'white' : 'black',
+            backgroundColor: theme.theme === 'light' ? 'white' : '#333',
           }}
         >
           <TableHead
             style={{
-              backgroundColor: theme.theme === 'light' ? 'white' : 'black',
+              backgroundColor: theme.theme === 'light' ? 'white' : '#333',
             }}
           >
             <TableRow
               id='Table-Header'
               style={{
-                backgroundColor: theme.theme === 'light' ? 'white' : 'black',
+                backgroundColor: theme.theme === 'light' ? 'white' : '#333',
               }}
             >
               <TableCell align='center' sx={{ flex: 1 }}>
                 <Typography
                   variant='body2'
-                  sx={{ color: theme.theme === 'light' ? 'black' : 'white' }}
+                  sx={{ color: theme.theme === 'light' ? '#333' : 'white' }}
                 >
                   Zones
                 </Typography>
@@ -233,8 +233,7 @@ const PowerZoneCalculator = () => {
               <TableRow
                 key={zone.zone}
                 sx={{
-                  backgroundColor:
-                    theme.theme === 'dark' ? 'black' : zone.color,
+                  backgroundColor: theme.theme === 'dark' ? '#333' : zone.color,
                 }}
               >
                 <TableCell
@@ -309,8 +308,8 @@ const PowerZoneCalculator = () => {
             ))}
           </TableBody>
         </Table>
+        <Button onClick={exportToPDF}>Export Table to PDF</Button>
       </TableContainer>
-      <Button onClick={exportToPDF}>Export Table to PDF</Button>
     </div>
   );
 };

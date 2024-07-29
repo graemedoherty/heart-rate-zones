@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ThemeContext } from '../../App';
 import { Slide } from '@mui/material';
+import { PowerData } from '../../ZoneInformation';
 
 import './Power.css';
 import '../../App.css';
@@ -89,17 +90,31 @@ const PowerZoneData = () => {
                   effort for around an hour.
                 </li>
               </ol>
+              <h2>Practical Application of Power Zones</h2>
+              <p>
+                Base Training: Focus on Zones 2 and 3 to build aerobic capacity
+                and endurance during the early phases of training.
+              </p>
+              <p>
+                Build Phase: Incorporate more Zone 4 (Threshold) and Zone 5 (VO2
+                Max) intervals to improve lactate threshold and aerobic power.
+              </p>
+              <p>
+                Peak Phase: Emphasize high-intensity intervals in Zones 5, 6,
+                and 7 to maximize fitness and performance before key events.
+              </p>
+              <p>
+                Recovery: Use Zone 1 for active recovery sessions to facilitate
+                recovery and adaptation between harder workouts.
+              </p>
             </div>
             <p>
               Once you have established your FTP, you can use the calculator to
               determine your Power Zones. These zones are calculated as
               percentages of your FTP. While the exact percentages and number of
               zones may vary depending on the system or training philosophy, a
-              common approach uses the following range:
+              common approach uses the following ranges:
             </p>
-            <div className='formula-container'>
-              <p className='formula'>FTP = Average Power × 0.95</p>
-            </div>
           </div>
         </Slide>
         <Slide
@@ -109,24 +124,11 @@ const PowerZoneData = () => {
           {...(true ? { timeout: 500 } : {})}
         >
           <div className='section-right'>
-            <h2>Practical Application of Power Zones</h2>
-            <p>
-              Base Training: Focus on Zones 2 and 3 to build aerobic capacity
-              and endurance during the early phases of training.
-            </p>
-            <p>
-              Build Phase: Incorporate more Zone 4 (Threshold) and Zone 5 (VO2
-              Max) intervals to improve lactate threshold and aerobic power.
-            </p>
-            <p>
-              Peak Phase: Emphasize high-intensity intervals in Zones 5, 6, and
-              7 to maximize fitness and performance before key events.
-            </p>
-            <p>
-              Recovery: Use Zone 1 for active recovery sessions to facilitate
-              recovery and adaptation between harder workouts.
-            </p>
+            <PowerData />
 
+            <div className='formula-container'>
+              <p className='formula'>FTP = Average Power × 0.95</p>
+            </div>
             <div className='table-container'>
               <PowerZoneCalculator />
             </div>
@@ -138,8 +140,8 @@ const PowerZoneData = () => {
         <div className='section-left'>
           <Accordion
             sx={{
-              background: theme.theme === 'dark' ? 'black' : 'white',
-              color: theme.theme === 'dark' ? 'white' : 'black',
+              background: theme.theme === 'dark' ? '#333' : 'white',
+              color: theme.theme === 'dark' ? 'white' : '#333',
             }}
           >
             <AccordionSummary

@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 const PowerZones = () => (
   <div className='section-bottom'>
     <div className='section-left'>
-      <h2>Z Zone 1 (&lt;54% FTP) Recovery</h2>
+      <h2>Zone 1 (&lt;54% FTP) Recovery</h2>
       <Typography paragraph>
         Zone 1 is considered low-intensity exercise, though it’s not limited to
         recovery or walking, according to Jim Vance. With a solid aerobic base,
