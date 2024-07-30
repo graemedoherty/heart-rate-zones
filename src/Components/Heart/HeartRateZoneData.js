@@ -138,22 +138,25 @@ const HeartRateZoneData = () => {
             a maximum heart rate of 180 beats per minute. However, this method
             has its limitations. It tends to be less accurate for both younger
             and older individuals and does not account for personal factors such
-            as genetics. If you’re looking for the most accurate way to
-            calculate your max heart rate, you should have your HR max
-            clinically measured. This is something you’ll need to do in a fancy
-            laboratory environment with high-tech equipment. In addition to
-            using estimations and tests, you can determine your maximum heart
-            rate with a practical field test. Simply lace up your running shoes,
-            activate your heart rate monitor, and head outside for a real-world
-            assessment. No need for specialized laboratory equipment—this
-            straightforward field test will give you an accurate and
-            personalized estimate of your maximum heart rate. The process is
-            easy: start with a proper warm-up, then engage in an exercise that
-            pushes you close to your maximum effort.
+            as genetics.
           </p>
           <div className='formula-container'>
             <p className='formula'>MHR = 220 - age</p>
           </div>
+          <p>
+            If you’re looking for the most accurate way to calculate your max
+            heart rate, you should have your HR max clinically measured. This is
+            something you’ll need to do in a fancy laboratory environment with
+            high-tech equipment. In addition to using estimations and tests, you
+            can determine your maximum heart rate with a practical field test.
+            Simply lace up your running shoes, activate your heart rate monitor,
+            and head outside for a real-world assessment. No need for
+            specialized laboratory equipment—this straightforward field test
+            will give you an accurate and personalized estimate of your maximum
+            heart rate. The process is easy: start with a proper warm-up, then
+            engage in an exercise that pushes you close to your maximum effort.
+          </p>
+
           <div className='stress-tests'>
             <div className='stress-item'>
               <h3>Stress Test 1</h3>

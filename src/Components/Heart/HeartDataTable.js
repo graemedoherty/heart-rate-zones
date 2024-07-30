@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import BasicModal from '../../BasicModal';
+
 import zonesData from '../../ZonesData.json'; // Adjust the path as needed
 import { ThemeContext } from '../../App';
 import { Button } from '@mui/material';
