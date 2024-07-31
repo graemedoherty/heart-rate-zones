@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/training-zones/static/css/main.95b94f72.css",
-    "main.js": "/training-zones/static/js/main.c0f6abd9.js",
+    "main.css": "/training-zones/static/css/main.ab205150.css",
+    "main.js": "/training-zones/static/js/main.206d4660.js",
     "static/js/361.ba9aaa42.chunk.js": "/training-zones/static/js/361.ba9aaa42.chunk.js",
     "static/js/359.f544078f.chunk.js": "/training-zones/static/js/359.f544078f.chunk.js",
     "static/js/172.4fbff985.chunk.js": "/training-zones/static/js/172.4fbff985.chunk.js",
     "index.html": "/training-zones/index.html",
-    "main.95b94f72.css.map": "/training-zones/static/css/main.95b94f72.css.map",
-    "main.c0f6abd9.js.map": "/training-zones/static/js/main.c0f6abd9.js.map",
+    "main.ab205150.css.map": "/training-zones/static/css/main.ab205150.css.map",
+    "main.206d4660.js.map": "/training-zones/static/js/main.206d4660.js.map",
     "361.ba9aaa42.chunk.js.map": "/training-zones/static/js/361.ba9aaa42.chunk.js.map",
     "359.f544078f.chunk.js.map": "/training-zones/static/js/359.f544078f.chunk.js.map",
     "172.4fbff985.chunk.js.map": "/training-zones/static/js/172.4fbff985.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.95b94f72.css",
-    "static/js/main.c0f6abd9.js"
+    "static/css/main.ab205150.css",
+    "static/js/main.206d4660.js"
   ]
 }
