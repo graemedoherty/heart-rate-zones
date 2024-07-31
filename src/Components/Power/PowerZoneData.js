@@ -108,13 +108,6 @@ const PowerZoneData = () => {
                 recovery and adaptation between harder workouts.
               </p>
             </div>
-            <p>
-              Once you have established your FTP, you can use the calculator to
-              determine your Power Zones. These zones are calculated as
-              percentages of your FTP. While the exact percentages and number of
-              zones may vary depending on the system or training philosophy, a
-              common approach uses the following ranges:
-            </p>
           </div>
         </Slide>
         <Slide
@@ -124,6 +117,13 @@ const PowerZoneData = () => {
           {...(true ? { timeout: 500 } : {})}
         >
           <div className='section-right'>
+            <p>
+              Once you have established your FTP, you can use the calculator to
+              determine your Power Zones. These zones are calculated as
+              percentages of your FTP. While the exact percentages and number of
+              zones may vary depending on the system or training philosophy, a
+              common approach uses the following ranges:
+            </p>
             <PowerData />
 
             <div className='formula-container'>

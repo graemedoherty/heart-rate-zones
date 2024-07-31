@@ -30,6 +30,19 @@
 #ftp-input {
 }
 
+.Slider-Row {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+
+#power-input-value-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .power-input-row {
   width: 100%;
   display: flex;

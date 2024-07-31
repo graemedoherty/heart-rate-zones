@@ -4,8 +4,9 @@ import { Slider } from '@mui/material';
 
 const PrettoSlider = styled(Slider)(({ theme }) => ({
   color: theme === 'dark' ? '#fff' : '#000',
+  margin: '1em',
   height: 2,
-  width: '50%',
+  width: '100%',
   '& .MuiSlider-track': {
     border: 'none',
   },

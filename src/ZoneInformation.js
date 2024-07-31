@@ -19,25 +19,25 @@ export const PowerData = () => (
         <h5 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
           <b>Zone 3</b> Tempo
         </h5>
-        76% to 90% of FTP, Moderate to hard
+        75% to 90% of FTP, Moderate to hard
       </li>
       <li style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}>
         <h5 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
           <b>Zone 4</b> Lactate Threshold
         </h5>
-        91% to 105% of FTP, Hard
+        90% to 105% of FTP, Hard
       </li>
       <li style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}>
         <h5 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
           <b>Zone 5</b> VO2 Max
         </h5>
-        106% to 120% of FTP, Very hard
+        105% to 120% of FTP, Very hard
       </li>
       <li style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}>
         <h5 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>
           <b>Zone 6</b> Anaerobic Capacity
         </h5>
-        121% to 150% of FTP, Extremely hard
+        120% to 150% of FTP, Extremely hard
       </li>
       <li style={{ padding: '5px 0', margin: '0', lineHeight: 'normal' }}>
         <h5 style={{ padding: '0', margin: '0', lineHeight: 'normal' }}>

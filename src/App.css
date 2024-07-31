@@ -127,7 +127,7 @@ html,
 }
 
 #dark .Sidebar {
-  background-color: '#333';
+  background-color: #333 !important;
 }
 
 .Content {
@@ -154,8 +154,9 @@ html,
 }
 
 .Slider-Row {
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: row !important;
   justify-content: space-between;
 }
 
@@ -314,9 +315,6 @@ MuiTableContainer-root {
   #ftp-input {
     margin: 0;
     padding: 4px;
-  }
-
-  .Card {
   }
 
   .Sidebar {

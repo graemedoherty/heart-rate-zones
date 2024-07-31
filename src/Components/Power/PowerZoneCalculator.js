@@ -7,7 +7,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import { Button } from '@mui/material';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
@@ -121,6 +123,16 @@ const PowerZoneCalculator = () => {
     setFtp(newValue); // Update the FTP value when the slider changes
   };
 
+  const incrementValue = () => {
+    setValue((prevValue) => Math.min(prevValue + 1, 440));
+    setFtp((prevValue) => Math.min(prevValue + 1, 440));
+  };
+
+  const decrementValue = () => {
+    setValue((prevValue) => Math.max(prevValue - 1, 120));
+    setFtp((prevValue) => Math.max(prevValue - 1, 120));
+  };
+
   if (!ranges) {
     return <div>Loading...</div>; // Or handle loading state appropriately
   }
@@ -128,27 +140,44 @@ const PowerZoneCalculator = () => {
   return (
     <div className='power-zone-container'>
       <div className='power-input-row'>
-        <h5>Enter your estimated FTP </h5>
+        <h5>Enter your estimated FTP</h5>
         <div className='power-zone-container'>
           <div id='power-input-value-row'>
             {' '}
-            <Typography component='span' variant='h1' sx={{ fontSize: '4em' }}>
+            <Typography
+              component='span'
+              variant='h1'
+              sx={{
+                fontSize: '4em',
+              }}
+            >
               {`${value} `}
             </Typography>
             <Typography component='span' variant='h6' sx={{ fontSize: '1em' }}>
               FTP
             </Typography>
+            <div className='Slider-Row'>
+              <IconButton onClick={decrementValue}>
+                <RemoveIcon
+                  sx={{ color: theme.theme === 'dark' ? 'white' : '#333' }}
+                />
+              </IconButton>
+              <PrettoSlider
+                id='PowerZoneSlider'
+                aria-label='pretto slider'
+                value={typeof value === 'number' ? value : 0}
+                min={120}
+                max={440}
+                onChange={handleSliderChange}
+                theme={theme.theme}
+              />
+              <IconButton onClick={incrementValue}>
+                <AddIcon
+                  sx={{ color: theme.theme === 'dark' ? 'white' : '#333' }}
+                />
+              </IconButton>
+            </div>
           </div>
-
-          <PrettoSlider
-            id='PowerZoneSlider'
-            aria-label='pretto slider'
-            value={typeof value === 'number' ? value : 0}
-            min={120}
-            max={440}
-            onChange={handleSliderChange}
-            theme={theme.theme}
-          />
         </div>
       </div>
 

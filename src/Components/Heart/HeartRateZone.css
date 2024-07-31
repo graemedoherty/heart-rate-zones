@@ -17,7 +17,7 @@
   height: 100%; /* Ensure it takes the full height of its parent */
 }
 
-.Slider-Row {
+.Slider-Row-Heart {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -26,6 +26,7 @@
 
 #slider-bottom {
   display: flex;
+  flex-direction: row;
   width: 100%;
   align-items: center;
   justify-content: center;
